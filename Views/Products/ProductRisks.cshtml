@@ -1,0 +1,57 @@
+﻿@model Isas.Models.InsurerViewModels.ProductRisksViewModel
+
+@{
+    ViewData["Title"] = "Product Risks";
+}
+
+<h2>Product Risks</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@Model.ProductName - Risks</caption>
+    <thead>
+        <tr>
+            <th>
+                Risk
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProductRisks)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Products" asp-action="ProductRiskBenefits"
+                       asp-route-productId="@Model.ProductID"
+                       asp-route-productriskId="@item.ID">@Html.DisplayFor(modelItem => item.Risk.Name)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Risk.Description)
+                </td>
+                <td>
+                    <a asp-controller="Products" asp-action="EditProductRisk" asp-route-id="@item.ID">Edit</a> | 
+                    <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@item.ID">Details</a> | 
+                    <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="CreateProductRisk"
+       asp-route-productId="@Model.ProductID"
+       class="btn btn-success">
+       + Add Risk
+    </a> |
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-Id="@Model.ProductID"
+       class="btn btn-info">
+       Return
+    </a>
+</div>

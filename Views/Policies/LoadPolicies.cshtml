@@ -1,0 +1,106 @@
+﻿@model Isas.Models.InsurerViewModels.PolicyTempsViewModel
+
+@{
+    ViewData["Title"] = "Load Policies";
+}
+
+<h2>Load Policies</h2>
+
+<form asp-action="LoadPolicies">
+    <h4>Bulk Load</h4>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductID" />
+    <input type="hidden" asp-for="UserID" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Click button to load to database" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<p>
+    @ViewData["Message"]
+</p>
+
+<hr /><br />
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID Number
+            </th>
+            <th>
+                Insurer
+            </th>
+            <th>
+                Insurer Number
+            </th>
+            <th>
+                Frequency
+            </th>
+            <th>
+                Effective Date
+            </th>
+            <th>
+                Expiry Date
+            </th>
+            <th>
+                Inception Date
+            </th>
+            <th>
+                Premium Due Date
+            </th>
+            <th>
+                Renewable
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PolicyTemps)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Insurer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsurerNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PolicyFrequency.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffectiveDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EffectiveDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InceptionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PremiumDueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Renewable)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    Total: @Model.PolicyTemps.Count()
+</p>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="ProductClients"
+       asp-route-productId="@Model.ProductID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

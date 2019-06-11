@@ -1,0 +1,36 @@
+@model IEnumerable<Isas.Models.BulkHandleGenerator>
+
+@{
+    ViewData["Title"] = "Bulk Handles";
+}
+
+<h2>Bulk Handles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BulkDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BulkDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordCount)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.BulkNumber">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

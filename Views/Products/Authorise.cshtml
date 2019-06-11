@@ -1,0 +1,325 @@
+﻿@model Isas.Models.InsurerViewModels.AuthoriseViewModel
+
+@{
+    ViewData["Title"] = "Requisitions";
+}
+
+<h2>Requisitions</h2>
+ <hr />
+
+<div id="dialog-message" title="Download complete">
+    <p>
+        <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+        Your files have downloaded successfully into the My Downloads folder.
+    </p>
+    <p>
+        Currently using <b>36% of your storage space</b>.
+    </p>
+</div>
+
+<div>
+    @if (Model.UnAuthorised.Count() == 0)
+    {
+        <div>
+            <br /><br />No requisitions for authorisation. <br /><br />
+        </div>
+    }
+    else
+    {
+        <table id="Authorise" class="table table-striped">
+            <caption style="color:royalblue">@Model.ProductName - For Authorisation</caption>
+            <thead>
+                <tr>
+                    <th>
+                        Transaction #
+                    </th>
+                    <th>
+                        Payee
+                    </th>
+                    <th>
+                        Invoice Number
+                    </th>
+                    <th>
+                        Invoice Date
+                    </th>
+                    <th>
+                        Requisition Date
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                        Affected
+                    </th>
+                    <th>
+                        Authorised
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.UnAuthorised)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TransactionNumber)
+                        </td>
+                        <td id="PayeeName" class="btn btn-link">
+                            @Html.DisplayFor(modelItem => item.Payee.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequisitionDate)
+                        </td>
+                        <td align="right">
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Affected.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Authorised)
+                        </td>
+                        <td>
+                            <a asp-action="SetAuthorise"
+                                asp-route-productId="@Model.ProductID"
+                                asp-route-Id="@item.ID"
+                                asp-route-authorised="@item.Authorised"
+                                id="btnAuthorise">
+                                @if (@item.Authorised == false)
+                                {
+                                    <p>Authorise</p>
+                                }
+                                else
+                                {
+                                    <p>Deauthorise</p>
+                                }
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<hr />
+
+<div>
+    @if (Model.Authorised.Count() == 0)
+    {
+        <div>
+            <br /><br />No authorised requisitions. <br /><br />
+        </div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <caption style="color:royalblue">@Model.ProductName - Authorised</caption>
+            <thead>
+                <tr>
+                    <th>
+                        Transaction #
+                    </th>
+                    <th>
+                        Payee
+                    </th>
+                    <th>
+                        Invoice Number
+                    </th>
+                    <th>
+                        Invoice Date
+                    </th>
+                    <th>
+                        Requisition Date
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                    <th>
+                        Affected
+                    </th>
+                    <th>
+                        Authorised
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Authorised)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TransactionNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Payee.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.InvoiceDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequisitionDate)
+                        </td>
+                        <td align="right">
+                            @Html.DisplayFor(modelItem => item.Amount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Affected.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Authorised)
+                        </td>
+                        <td>
+                            <a asp-action="SetAuthorise"
+                                asp-route-productId="@Model.ProductID"
+                                asp-route-Id="@item.ID"
+                                asp-route-authorised="@item.Authorised"
+                                id="btnAuthorise">
+                                @if (@item.Authorised == false)
+                                {
+                                    <p>Authorise</p>
+                                }
+                                else
+                                {
+                                    <p>Deauthorise</p>
+                                }
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<br /><br />
+
+<div>
+    <a asp-controller="Products"
+        asp-action="Board"
+        asp-route-Id="@Model.ProductID"
+        class="btn btn-info">
+        Return
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                //$("#PayeeName").click(function () {
+                //    alert("Handler for .click() called.");
+                //});
+
+                $("#Authorise").find('tr').click(function () {
+                    var row = $(this).find("td:first").text();
+                    alert('You clicked ' + row);
+                    $("#dialog-message").html("XXXXX");
+
+                    $(function () {
+                        $("#dialog-message2").dialog({
+                            modal: true,
+                            buttons: {
+                                Ok: function () {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        });
+                    });
+
+                    $("#dialog-message").dialog(
+                           {
+                               bgiframe: true,
+                               autoOpen: false,
+                               height: 100,
+                               modal: true
+                           }
+                    );
+
+                });
+
+
+                $(function () {
+                    $("#dialog-message").dialog({
+                        modal: true,
+                        buttons: {
+                            Ok: function () {
+                                $(this).dialog("close");
+                            }
+                        }
+                    });
+                });
+
+            @*$('#PaymentTypeID').on('change', function () {
+                var selectedTypeId = $("#PaymentTypeID").val();
+                var productid = $("#ProductID").val();
+
+                $.ajax({
+                    url: '@(Url.Action("PopulateTable"))',
+                    type: 'GET',
+                    dataType: 'JSON',
+                    data: { productId: productid, paymentTypeId: selectedTypeId },
+                    success: function (data) {
+                        var row = "";
+                        $.each(data, function (index, value) {
+                            var newdate = $.date(value.payableDate);
+                            var input = value.amount;
+                            row += "<tr><td>" + value.payee + "</td><td>" + value.reference +
+                                "</td><td>" + newdate + "</td><td>" + value.paymentType +
+                                "</td><td align='right'>" + input.numberFormat(2) +
+                                "</td><td>" + value.batchNumber + "</td></tr>";
+                        });
+                        $("#payablesTab").html(row);
+                    },
+                    error: function (result) {
+                        alert("Error");
+                    }
+                });
+
+            });
+
+            $.date = function (dateObject) {
+                var d = new Date(dateObject);
+                var day = d.getDate();
+                var month = d.getMonth() + 1;
+                var year = d.getFullYear();
+                if (day < 10) {
+                    day = "0" + day;
+                }
+                if (month < 10) {
+                    month = "0" + month;
+                }
+                var date = day + "/" + month + "/" + year;
+
+                return date;
+            };
+
+            Number.prototype.numberFormat = function (decimals, dec_point, thousands_sep) {
+                dec_point = typeof dec_point !== 'undefined' ? dec_point : '.';
+                thousands_sep = typeof thousands_sep !== 'undefined' ? thousands_sep : ',';
+
+                var parts = this.toFixed(decimals).split('.');
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
+
+                return parts.join(dec_point);
+            };*@
+
+        });
+        </script>
+    }

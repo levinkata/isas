@@ -1,0 +1,74 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>Isas</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Isas</PackageId>
+    <UserSecretsId>aspnet-Isas-47d34dcb-3f64-47c3-a96c-cd1b454df081</UserSecretsId>
+    <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
+    <!--<PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>-->
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\lib\**\*" />
+    <Compile Remove="Migrations\20190430165748_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190501072205_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190501120749_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190501122153_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190501123354_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190501172917_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190502122823_Initial.cs" />
+    <Compile Remove="Migrations\20190504073401_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190505144358_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506080136_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506083040_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506090800_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506104310_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506122620_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506130921_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190506133224_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190508074215_Init.cs" />
+    <Compile Remove="Migrations\20190508082520_Init.cs" />
+    <Compile Remove="Migrations\ApplicationDb\20190501132417_InitialCreate.cs" />
+    <None Update="wwwroot\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PrepublishScript" BeforeTargets="PrepareForPublish">
+    <Exec Command="bower install" />
+    <Exec Command="dotnet bundle" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.3.1" />
+    <PackageReference Include="EPPlus" Version="4.5.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+    <PackageReference Include="Syncfusion.EJ" Version="17.1.0.43" />
+    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="17.1.0.43" />
+    <PackageReference Include="Syncfusion.EJ.Export" Version="17.1.0.43" />
+    <PackageReference Include="Syncfusion.JavaScript" Version="17.1.0.43" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="17.1.0.43" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

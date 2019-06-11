@@ -1,0 +1,60 @@
+﻿@model Isas.Models.InsurerViewModels.PolicyRisksViewModel
+
+@{
+    ViewData["Title"] = "Policy Risks";
+}
+
+<h2>Policy Risks</h2>
+<hr />
+<h5 style="color:royalblue; font:bold">@Model.ClientName - Risks</h5>
+
+@foreach (var item in Model.Risks)
+{
+    @switch (item.ID)
+    {
+        case 1:
+            @await Component.InvokeAsync("AllRisks", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        case 2:
+            @await Component.InvokeAsync("Commercials", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        case 3:
+            @await Component.InvokeAsync("Contents", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        case 4:
+            @await Component.InvokeAsync("Loans", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        case 5:
+            @await Component.InvokeAsync("Motors", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        case 6:
+            @await Component.InvokeAsync("Properties", new {
+                                ProductId = Model.ProductID, clientId = Model.ClientID, policyId = Model.PolicyID });
+            break;
+        default:
+            break;
+    }
+}
+
+@await Component.InvokeAsync("PolicyRiskTotals", new { policyId = Model.PolicyID })
+
+<hr />
+
+<div>
+    <a asp-action="Index"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

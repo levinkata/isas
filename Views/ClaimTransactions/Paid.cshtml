@@ -1,0 +1,328 @@
+﻿@model IEnumerable<Isas.Models.ClaimTransaction>
+
+@{
+    ViewData["Title"] = "Paid";
+}
+
+<h2>Paid</h2>
+
+@*<form asp-action="Paid" asp-antiforgery="true" method="get">
+    <h4>Paid</h4>
+    <div class="form-horizontal">
+        <hr />
+        <input type="hidden" id="productId" name="productId" value="@ViewData["ProductID"]" />
+        <div id="search" class="form-group">
+            <label id="searchlabel" class="col-md-2 control-label">Filter by</label>
+            <div class="col-md-10">
+                <input type="text" id="searchString" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" />
+            </div>
+        </div>
+        <div id="StartDate" class="form-group">
+            <label class="col-md-2 control-label">Start Date</label>
+            <div class="col-md-10">
+                <input type="date" id="SDate" name="StartDate" value="@ViewData["StartDate"]" class="form-control" />
+            </div>
+        </div>
+        <div id="EndDate" class="form-group">
+            <label class="col-md-2 control-label">End Date</label>
+            <div class="col-md-10">
+                <input type="date" id="EDate" name="EndDate" value="@ViewData["EndDate"]" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Search Option</label>
+            <div class="col-md-10">
+                <select id="Option" name="option" class="form-control" asp-items="@ViewBag.SelectOptions"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" id="Refresh" value="Refresh" class="btn btn-warning btn" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@ViewData["ProductName"] - Paids</caption>
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Payee
+            </th>
+            <th>
+                Invoice Number
+            </th>
+            <th>
+                Invoice Date
+            </th>
+            <th>
+                Requisition Date
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Claim Number
+            </th>
+            <th>
+                Payment Reference
+            </th>
+            <th>
+                Payment Date
+            </th>
+            <th>
+                Payment Type
+            </th>
+        </tr>
+    </thead>
+    <tbody id="PaidTable">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequisitionDate)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payable.Reference)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payable.PayableDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payable.PaymentType.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+<span style="color:royalblue">@ViewData["ProductName"] - Paids</span>
+<ej-grid id="FlatGrid" allow-paging="true" allow-sorting="true" allow-filtering="true"
+         allow-resizing="true" allow-grouping="true">
+    <e-datamanager json="(IEnumerable<object>)ViewBag.datasource" adaptor="remoteSaveAdaptor" />
+    <e-columns>
+        <e-column field="ID" is-primary-key="true" visible="false"></e-column>
+        <e-column field="TransactionNumber" header-text="Transaction" visible="false"></e-column>
+        <e-column field="Payee" header-text="Payee" width="110"></e-column>
+        <e-column field="InvoiceNumber" header-text="Invoice Number"></e-column>
+        <e-column field="InvoiceDate" header-text="Invoice Date" format="{0:dd/MM/yyyy}"></e-column>
+        <e-column field="RequisitionDate" header-text="Requisition Date" format="{0:dd/MM/yyyy}"></e-column>
+        <e-column field="Amount" header-text="Amount" format="{0:N2}" text-align="Right"></e-column>
+        <e-column field="ClaimNumber" header-text="Claim Number"></e-column>
+        <e-column field="Reference" header-text="Reference" ></e-column>
+        <e-column field="PayableDate" header-text="Payment Date" format="{0:dd/MM/yyyy}"></e-column>
+        <e-column field="PaymentType" header-text="Payment Type"></e-column>
+    </e-columns>
+</ej-grid>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-id="@ViewData["ProductID"]"
+       class="btn btn-info">
+        Return
+    </a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @*<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>*@
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var selectedOption = $("#Option").val();
+
+            switch (selectedOption) {
+                case "0":        //  All
+                    $("#searchlabel").html("Filter by");
+                    $("#search").hide();
+                    $("#StartDate").hide();
+                    $("#EndDate").hide();
+                    break;
+                case "1":        //  Payee
+                    $("#searchlabel").html("Payee");
+                    $("#search").show();
+                    $("#StartDate").hide();
+                    $("#EndDate").hide();
+                    break;
+                case "2":        //  Invoice Number
+                    $("#searchlabel").html("Invoice Number");
+                    $("#search").show();
+                    $("#StartDate").hide();
+                    $("#EndDate").hide();
+                    break;
+                case "3":        //  Claim Number
+                    $("#searchlabel").html("Claim Number");
+                    $("#search").show();
+                    $("#StartDate").hide();
+                    $("#EndDate").hide();
+                    break;
+                case "4":        //  Reference Number
+                    $("#searchlabel").html("Reference Number");
+                    $("#search").show();
+                    $("#StartDate").hide();
+                    $("#EndDate").hide();
+                    break;
+                case "5":        //  Invoice Date
+                    $("#searchlabel").html("Filter by");
+                    $("#search").hide();
+                    $("#StartDate").show();
+                    $("#EndDate").show();
+                    break;
+                case "6":        //  Payment Date
+                    $("#searchlabel").html("Filter by");
+                    $("#search").hide();
+                    $("#StartDate").show();
+                    $("#EndDate").show();
+                    break;
+                default:
+                    break;
+            };
+
+            $("#searchString").focus(function () {
+                $("#searchString").val("");   // clear
+            });
+
+            $("#Option").change(function () {
+                var selectedOption = $("#Option").val();
+
+                $("#searchString").val("");   // clear
+
+                switch (selectedOption) {
+                    case "0":        //  All
+                        $("#searchlabel").html("Filter by");
+                        $("#search").hide();
+                        $("#StartDate").hide();
+                        $("#EndDate").hide();
+                        break;
+                    case "1":        //  Payee
+                        $("#searchlabel").html("Payee");
+                        $("#search").show();
+                        $("#StartDate").hide();
+                        $("#EndDate").hide();
+                        break;
+                    case "2":        //  Invoice Number
+                        $("#searchlabel").html("Invoice Number");
+                        $("#search").show();
+                        $("#StartDate").hide();
+                        $("#EndDate").hide();
+                        break;
+                    case "3":        //  Claim Number
+                        $("#searchlabel").html("Claim Number");
+                        $("#search").show();
+                        $("#StartDate").hide();
+                        $("#EndDate").hide();
+                        break;
+                    case "4":        //  Reference Number
+                        $("#searchlabel").html("Reference Number");
+                        $("#search").show();
+                        $("#StartDate").hide();
+                        $("#EndDate").hide();
+                        break;
+                    case "5":        //  Invoice Date
+                        $("#searchlabel").html("Filter by");
+                        $("#search").hide();
+                        $("#StartDate").show();
+                        $("#EndDate").show();
+                        break;
+                    case "6":        //  Payment Date
+                        $("#searchlabel").html("Filter by");
+                        $("#search").hide();
+                        $("#StartDate").show();
+                        $("#EndDate").show();
+                        break;
+                    default:
+                        break;
+                };
+            });
+
+            $('#Refresh').click(function () {
+                var selectedOption = $("#Option").val();
+                var productid = $("#productId").val();
+                var searchString = $("#searchString").val();
+                var startDate = $("#SDate").val();
+                var endDate = $("#EDate").val();
+
+                $.ajax({
+                    url: '@(Url.Action("PopulateTable"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: {
+                        productId: productid, option: selectedOption, searchString: searchString,
+                        StartDate: startDate, EndDate: endDate
+                    },
+                    success: function (data) {
+                        var row = "";
+                        $.each(data, function (index, value) {
+                            var requistiondate = $.date(value.requisitionDate);
+                            var invoicedate = $.date(value.invoiceDate);
+                            var payabledate = $.date(value.payableDate);
+                            var input = value.amount;
+                            row += "<tr><td>" + value.transactionNumber + "</td><td>" + value.payeeName +
+                                "</td><td>" + value.invoiceNumber + "</td><td>" + invoicedate +
+                                "</td><td>" + requistiondate +
+                                "</td><td align='right'>" + value.amount +
+                                "</td><td>" + value.claimNumber + "</td><td>" + value.reference +
+                                "</td><td>" + payabledate + "</td><td>" + value.paymentType + "</td></tr>";
+                        });
+                        $("#PaidTable").html(row);
+                    },
+                    error: function (result) {
+                        alert("Error");
+                    }
+                });
+
+            });
+            
+            $.date = function (dateObject) {
+                var d = new Date(dateObject);
+                var day = d.getDate();
+                var month = d.getMonth() + 1;
+                var year = d.getFullYear();
+                if (day < 10) {
+                    day = "0" + day;
+                }
+                if (month < 10) {
+                    month = "0" + month;
+                }
+                var date = day + "/" + month + "/" + year;
+
+                return date;
+            };
+
+            Number.prototype.numberFormat = function (decimals, dec_point, thousands_sep) {
+                dec_point = typeof dec_point !== 'undefined' ? dec_point : '.';
+                thousands_sep = typeof thousands_sep !== 'undefined' ? thousands_sep : ',';
+
+                var parts = this.toFixed(decimals).split('.');
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
+
+                return parts.join(dec_point);
+            };
+
+        });
+    </script>
+}

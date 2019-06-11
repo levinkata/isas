@@ -1,0 +1,53 @@
+@model Isas.Models.InsurerViewModels.ContainerViewModel
+
+@{
+    ViewData["Title"] = "Edit Container";
+}
+
+<h2>Edit Container</h2>
+
+<form asp-action="Edit" asp-antiforgery="true">
+    <div class="form-horizontal">
+        <h4>Container</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Container.ID" />
+        <div class="form-group">
+            <label asp-for="Container.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Container.Name" class="form-control" />
+                <span asp-validation-for="Container.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Container.ContactPerson" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Container.ContactPerson" class="form-control" />
+                <span asp-validation-for="Container.ContactPerson" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Container.Business" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Container.Business" class="form-control" />
+                <span asp-validation-for="Container.Business" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Container.CountryID" class="col-md-2 control-label">Country</label>
+            <div class="col-md-10">
+                <select asp-for="Container.CountryID" class="form-control" asp-items="@Model.CountryList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index" class="btn btn-default">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

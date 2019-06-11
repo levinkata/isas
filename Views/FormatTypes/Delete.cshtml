@@ -1,0 +1,67 @@
+@model Isas.Models.FormatType
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>FormatType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ColumnLength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ColumnLength)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Delimiter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Delimiter)
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.FieldName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FieldName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TableName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TableName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

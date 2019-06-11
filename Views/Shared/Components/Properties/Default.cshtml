@@ -1,0 +1,96 @@
+﻿@model Isas.Models.InsurerViewModels.PropertiesViewModel
+
+@{
+    ViewData["Title"] = "Properties";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Properties</caption>
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                Sum Insured
+            </th>
+            <th>
+                Premium
+            </th>
+            <th>
+                Cover
+            </th>
+            <th>
+                Wall
+            </th>
+            <th>
+                Roof
+            </th>
+            <th>
+                Residence
+            </th>
+            <th>
+                Bond Holder
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Properties)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Premium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coverage.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WallType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoofType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResidenceType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BondHolder)
+                </td>
+                <td>
+                <td>
+                    <a asp-controller="Claims"
+                       asp-action="Create"
+                       asp-route-productId="@Model.ProductID"
+                       asp-route-clientId="@Model.ClientID"
+                       asp-route-policyId="@Model.PolicyID"
+                       asp-route-riskId="6"
+                       asp-route-riskitemId="@item.ID">
+                        Add Claim
+                    </a> |
+                    <a asp-controller="Properties" asp-action="Edit" asp-route-id="@item.ID">Edit</a> | 
+                    <a asp-controller="Properties" asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-controller="Properties" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Properties"
+       asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-success">
+        + Add Property
+    </a>
+</div>

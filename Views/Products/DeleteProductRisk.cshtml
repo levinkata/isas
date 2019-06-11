@@ -1,0 +1,58 @@
+﻿@model Isas.Models.ProductRisk
+
+@{
+    ViewData["Title"] = "Delete Product Risk";
+}
+
+<h2>Delete Product Risk</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product Risk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Risk.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Risk.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimLimit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClaimLimit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimPrefix)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClaimPrefix)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UseCFG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UseCFG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyFee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyFee)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commission)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commission)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteProductRisk">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="ProductRisks" asp-route-productid="@Model.ProductID">Back to Product Risk List</a>
+        </div>
+    </form>
+</div>

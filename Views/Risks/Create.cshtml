@@ -1,0 +1,40 @@
+@model Isas.Models.InsurerViewModels.RiskViewModel
+
+@{
+    ViewData["Title"] = "New Risk";
+
+}
+ 
+<h2>New Risk</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Risk</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Risk.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Risk.Name" class="form-control" />
+                <span asp-validation-for="Risk.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Risk.Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Risk.Description" class="form-control" />
+                <span asp-validation-for="Risk.Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-action="Index" class="btn btn-default">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

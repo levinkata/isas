@@ -1,0 +1,107 @@
+﻿@model Isas.Models.InsurerViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<div class="jumbotron">
+    <h2>@Model.ContainerName - @Model.Product.Name</h2>
+</div>
+
+<br /><br />
+
+<div class="row">
+    <div class="col-md-3">
+        <p>Product Clients</p>
+        <a asp-action="ProductClients"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Clients &raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Product Risks</p>
+        <a asp-action="ProductRisks"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Risks &raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Product Claims</p>
+        <a asp-action="ProductClaims"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Claims &raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Requisitions</p>
+        <a asp-action="Authorise"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Authorise &raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Product Load Formats</p>
+        <a asp-controller="LoadFormats"
+            asp-action="Index"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Load Formats&raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Authorise For Payment</p>
+        <a asp-controller="Payables"
+            asp-action="Approve"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Approve&raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Process Payment</p>
+        <a asp-controller="Payables"
+            asp-action="ProcessPayments"
+            asp-route-productId="@Model.Product.ID"
+            class="btn btn-default">
+            Payments&raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Processed Requisitions</p>
+        <a asp-controller="ClaimTransactions"
+           asp-action="Paid"
+           asp-route-productId="@Model.Product.ID"
+           asp-route-option="0"
+           asp-route-searchString=""
+           asp-route-StartDate="@DateTime.Now"
+           asp-route-EndDate="@DateTime.Now"
+           class="btn btn-danger">
+            Paid Requisitions&raquo;
+        </a>
+    </div>
+    <div class="col-md-3">
+        <p>Payables</p>
+        <a asp-controller="Payables"
+           asp-action="Index"
+           asp-route-productId="@Model.Product.ID"
+           class="btn btn-default">
+            Payables&raquo;
+        </a>
+    </div>
+</div>
+<hr/>
+<div>
+    <a asp-action="Index"
+       asp-route-containerId="@Model.ContainerID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

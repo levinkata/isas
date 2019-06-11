@@ -1,0 +1,86 @@
+@model Isas.Models.InsurerViewModels.ClientViewModel
+
+@{
+    ViewData["Title"] = "Edit Client";
+}
+
+<h2>Edit Client</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Client</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Client.ID" />
+        <input type="hidden" asp-for="Client.PayeeClassID" />
+        <div class="form-group">
+            <label asp-for="Client.ClientTypeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Client.ClientTypeID" class="form-control" asp-items="@Model.ClientTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.IDNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Client.IDNumber" class="form-control" />
+                <span asp-validation-for="Client.IDNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.TitleID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Client.TitleID" class="form-control" asp-items="@Model.TitleList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Client.FirstName" class="form-control" />
+                <span asp-validation-for="Client.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Client.LastName" class="form-control" />
+                <span asp-validation-for="Client.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.Gender" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Client.Gender" class="form-control" asp-items="@Model.GenderList"></select>
+                <span asp-validation-for="Client.Gender" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.BirthDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Client.BirthDate" class="form-control" />
+                <span asp-validation-for="Client.BirthDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.CountryID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Client.CountryID" class="form-control" asp-items="@Model.CountryList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Client.OccupationID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Client.OccupationID" class="form-control" asp-items="@Model.OccupationList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-payeeClassId="@Model.Client.PayeeClassID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

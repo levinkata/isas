@@ -1,0 +1,103 @@
+﻿@model Isas.Models.InsurerViewModels.ClaimTransactionsViewModel
+
+@{
+    ViewData["Title"] = "Requisitions";
+}
+
+<h2>Requisitions</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Requisitions for Claim Number : @Model.ClaimNumber</caption>
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Payee
+            </th>
+            <th>
+                Invoice Number
+            </th>
+            <th>
+                Invoice Date
+            </th>
+            <th>
+                Requisition Date
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Affected
+            </th>
+            <th>
+                Authorised
+            </th>
+            <th>
+                Finalise
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ClaimTransactions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequisitionDate)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Affected.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Authorised)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Finalise)
+                </td>
+                <td>
+                    @if (@item.Authorised == false)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit |</a>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       asp-route-claimId="@Model.ClaimNumber"
+       class="btn btn-success">
+        + New Requisition
+    </a> |
+    <a asp-controller="Claims"
+       asp-action="Index"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

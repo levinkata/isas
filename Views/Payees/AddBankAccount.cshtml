@@ -1,0 +1,77 @@
+﻿@model Isas.Models.InsurerViewModels.PayeeBankAccountViewModel
+@{
+    ViewBag.Title = "Add Bank Account";
+}
+
+<h2>Add Bank Account</h2>
+
+<form asp-action="AddBankAccount" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Bank</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="PayeeID" />
+        <div class="form-group">
+            <label asp-for="BankID" class="col-md-2 control-label">Bank</label>
+            <div class="col-md-10">
+                <select asp-for="BankID" class="form-control" asp-items="@Model.BankList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BankAccount.BankBranchID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="BankAccount.BankBranchID" class="form-control" asp-items="@Model.BankBranchList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BankAccount.AccountNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BankAccount.AccountNumber" class="form-control" />
+                <span asp-validation-for="BankAccount.AccountNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-ofset2 col-md-10">
+                <input type="submit" value="Confirm" class="btn btn-default" /> |
+                <a asp-action="PayeeBankAccounts"
+                   asp-route-payeeId="@Model.PayeeID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#BankID").change(function () {
+                var bankId = $("#BankID").val();
+
+                $.ajax({
+                    url: "@(Url.Action("BankBranches"))",
+                    dataType: "JSON",
+                    type: "POST",
+                    data: { bankId: bankId },
+                    error: function () {
+                        alert(" An error occurred.");
+                    },
+                    success: function (data) {
+                        debugger;
+                        $("#BankAccount_BankBranchID").empty();   // clear before appending new list
+
+                        $.each(data, function (index, value) {
+                            $('#BankAccount_BankBranchID').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+            });
+
+        });
+
+    </script>
+}

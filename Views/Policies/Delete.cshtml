@@ -1,0 +1,82 @@
+@model Isas.Models.Policy
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Policy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExpireDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectiveDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EffectiveDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InceptionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InceptionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsurerNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsurerNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyVersion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyVersion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PremiumDueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PremiumDueDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Renewable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Renewable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StatusDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

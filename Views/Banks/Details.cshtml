@@ -1,0 +1,30 @@
+@using Isas.Components
+
+@model Isas.Models.Bank
+
+@{
+    ViewData["Title"] = "Bank Details";
+}
+
+<h2>Bank Details</h2>
+
+<div>
+    <h4>Bank</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt></dt>
+        <dd>
+            @await Component.InvokeAsync("Addresses", new { id = Model.ID, containername = "Banks" })
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-Id="@Model.ID">Edit</a> |
+    <a asp-action="Index" asp-route-payeeClassId="@Model.PayeeClassID" class="btn btn-info">Return</a>
+</div>

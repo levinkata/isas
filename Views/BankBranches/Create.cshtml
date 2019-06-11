@@ -1,0 +1,49 @@
+@model Isas.Models.InsurerViewModels.BankBranchViewModel
+
+@{
+    ViewData["Title"] = "Add Branch";
+}
+
+<h2>Add Branch</h2>
+<hr />
+<p>@Model.BankName</p>
+
+<legend>@Model.BankName</legend>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="BankID" type="hidden" />
+        <div class="form-group">
+            <label asp-for="BankBranch.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BankBranch.Name" class="form-control" />
+                <span asp-validation-for="BankBranch.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BankBranch.BIC" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BankBranch.BIC" class="form-control" />
+                <span asp-validation-for="BankBranch.BIC" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BankBranch.SwiftCode" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BankBranch.SwiftCode" class="form-control" />
+                <span asp-validation-for="BankBranch.SwiftCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-bankId="@Model.BankID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

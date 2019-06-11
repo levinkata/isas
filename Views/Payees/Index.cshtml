@@ -1,0 +1,40 @@
+@model IEnumerable<Isas.Models.Payee>
+
+@{
+    ViewData["Title"] = "Payees";
+}
+
+<h2>Payees</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Payees</caption>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Class
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                        
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PayeeClass.Name)
+                </td>
+                <td>
+                    <a asp-action="PayeeBankAccounts" asp-route-payeeId="@item.ID">Bank</a> |
+                    <a asp-action="Delete" asp-route-Id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

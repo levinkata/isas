@@ -1,0 +1,346 @@
+﻿@model Isas.Models.InsurerViewModels.PaymentProcessingViewModel
+
+@{
+    ViewData["Title"] = "Process Payments";
+    int rowCount = Model.BankAccounts.GetUpperBound(0) + 1;
+}
+
+<h2>Process Payments</h2>
+
+@if (Model.ChequeSummaryTemps.Count() > 0)
+{
+    <form asp-action="ProcessPayments" asp-antiforgery="true" method="post">
+        <div class="form-horizontal">
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" asp-for="AllAccounts" />            
+            <div class="form-group">
+                <label asp-for="PaymentTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="PaymentTypeID" class="form-control" asp-items="@Model.PaymentTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReferenceNumber" id="ReferenceLabel" class="col-md-2 control-label">Cash Voucher</label>
+                <div class="col-md-10">
+                    <input asp-for="ReferenceNumber" class="form-control" />
+                    <span asp-validation-for="ReferenceNumber" class="text-danger"></span>
+                    <span id="accErr" class="text-danger">@ViewData["ErrReference"]</span>
+                </div>
+            </div>          
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Process" class="btn btn-success" />
+                    <span id="refErr" class="text-danger">@ViewData["ErrBankAccounts"]</span>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped">
+        <caption style="color:royalblue">@Model.ProductName - Payments</caption>
+        <thead>
+            <tr>
+                <th>
+                    Payee
+                </th>
+                <th>
+                    Postal Address
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Invoices
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ChequeSummaryTemps)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostalAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayeeCount)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <div>
+        Total Cheques: @String.Format("{0:#,##0.00}", @Model.ChequeSummaryTemps.Sum(a => a.Amount))
+        <hr />
+    </div>
+
+    @if (Model.AllAccounts == false)
+    {
+        <div id="Notice" class="panel-primary bg-primary text-center">
+            <p>
+                Some Payees do not have Bank Account Numbers.
+            </p>
+            <p>
+                Please ensure that all Payees have Account Numbers before proceeding.
+            </p>
+        </div>
+    }
+
+    <table class="table" id="BankAccounts">
+        <caption style="color:royalblue">Bank Accounts</caption>
+        <thead>
+            <tr>
+                <th>
+                    Payee
+                </th>
+                <th>
+                    Account #
+                </th>
+                <th>
+                    Branch Code
+                </th>
+                <th>
+                    Bank
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+@for (int i = 0; i < rowCount; i++)
+{
+            <tr>
+                @if (String.IsNullOrEmpty(@Model.BankAccounts[i, 2].ToString()))
+                {
+                    <td style="color: red;">
+                        @Model.BankAccounts[i, 1]
+                    </td>
+                    <td style="color: red;">
+                        @Model.BankAccounts[i, 2]
+                    </td>
+                    <td style="color: red;">
+                        @Model.BankAccounts[i, 3]
+                    </td>
+                    <td style="color: red;">
+                        @Model.BankAccounts[i, 4]
+                    </td>
+                }
+                else
+                {
+                    <td style="color: black;">
+                        @Model.BankAccounts[i, 1]
+                    </td>
+                    <td style="color: black;">
+                        @Model.BankAccounts[i, 2]
+                    </td>
+                    <td style="color: black;">
+                        @Model.BankAccounts[i, 3]
+                    </td>
+                    <td style="color: black;">
+                        @Model.BankAccounts[i, 4]
+                    </td>
+                }
+            </tr>
+}
+        </tbody>
+    </table>
+
+    <table class="table table-striped">
+        <caption style="color:royalblue">Invoices</caption>
+        <thead>
+            <tr>
+                <th>
+                    Payee
+                </th>
+                <th>
+                    Invoice #
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Claim Number
+                </th>
+                <th>
+                    Client
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ChequeTemps)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                    </td>
+                    <td align="right">
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClaimNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Client)
+                    </td>
+                    <td>
+                        <a asp-action="RemoveFromPayment"
+                           asp-route-productId="@Model.ProductID"
+                           asp-route-Id="@item.ID">
+                            Remove
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div>
+        Total Invoices: @String.Format("{0:#,##0.00}", @Model.ChequeTemps.Sum(a => a.Amount))
+    </div>
+}
+else
+{
+    <div>
+        <br /><br />No transactions available for payment. <br /><br />
+    </div>
+}
+<div>
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-id="@Model.ProductID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @*<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>*@
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var selectedValue = $("#PaymentTypeID").val();
+
+            switch (selectedValue) {
+                case "1":        //  Cash
+                    $("#ReferenceLabel").html("Cash Voucher");
+                    $("#BankAccounts").hide();
+                    $("#Notice").hide();
+                    break;
+                case "2":        //  EFT
+                    $("#ReferenceLabel").html("EFT Reference");
+                    $("#BankAccounts").show();
+                    $("#Notice").show();
+                    break;
+                case "3":        //  Cheque
+                    $("#ReferenceLabel").html("Cheque Number");
+                    $("#BankAccounts").hide();
+                    $("#Notice").hide();
+                    break;
+                case "4":        //  Direct Debit
+                    $("#ReferenceLabel").html("Debit Reference");
+                    $("#BankAccounts").show();
+                    $("#Notice").show();
+                    break;
+                case "5":        //  Bank Transfer
+                    $("#ReferenceLabel").html("Bank Reference");
+                    $("#BankAccounts").show();
+                    $("#Notice").show();
+                    break;
+                default:
+                    break;
+            };
+
+
+            $(function () {
+                $("#PaymentTypeID").change(function () {
+        
+                    var selectedValue = $(this).val();
+
+                    //  Cash:           1
+                    //  EFT:            2
+                    //  Cheque:         3
+                    //  Direct Debit:   4
+                    //  Bank Transfer:  5
+
+                    switch (selectedValue) {
+                        case "1":        //  Cash
+                            $("#ReferenceLabel").html("Cash Voucher");
+                            $("#BankAccounts").hide();
+                            $("#Notice").hide();
+                            break;
+                        case "2":        //  EFT
+                            $("#ReferenceLabel").html("EFT Reference");
+                            $("#BankAccounts").show();
+                            $("#Notice").show();
+                            break;
+                        case "3":        //  Cheque
+                            $("#ReferenceLabel").html("Cheque Number");
+                            $("#BankAccounts").hide();
+                            $("#Notice").hide();
+                            break;
+                        case "4":        //  Direct Debit
+                            $("#ReferenceLabel").html("Debit Reference");
+                            $("#BankAccounts").show();
+                            $("#Notice").show();
+                            break;
+                        case "5":        //  Bank Transfer
+                            $("#ReferenceLabel").html("Bank Reference");
+                            $("#BankAccounts").show();
+                            $("#Notice").show();
+                            break;
+                        default:
+                            break;
+                    };
+                });
+            });
+            //  "Process" button should be disabled until ReferenceNumber has been
+            //  entered or until Bank Account Numbers for the affected Payees have
+            //  been verified.
+
+
+            Number.prototype.numberFormat = function (decimals, dec_point, thousands_sep) {
+                dec_point = typeof dec_point !== 'undefined' ? dec_point : '.';
+                thousands_sep = typeof thousands_sep !== 'undefined' ? thousands_sep : ',';
+
+                var parts = this.toFixed(decimals).split('.');
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, thousands_sep);
+
+                return parts.join(dec_point);
+            };
+            //input.numberFormat(2)
+
+            // Disable function
+            jQuery.fn.extend({
+                disable: function (state) {
+                    return this.each(function () {
+                        this.disabled = state;
+                    });
+                }
+            });
+
+            $("#ReferenceNumber").focus(function () {
+                $('#accErr').empty();   // clear
+                $('#refErr').empty();   // clear
+            });
+
+        });
+    </script>
+}

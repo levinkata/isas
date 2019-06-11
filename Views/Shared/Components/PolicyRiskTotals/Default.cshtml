@@ -1,0 +1,33 @@
+﻿@model Isas.Models.InsurerViewModels.PolicyRiskTotalsViewModel
+
+@{
+    ViewData["Title"] = "Totals";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Totals</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <b>Sum Insured:</b>
+            </td>
+            <td align="right">
+                @String.Format("{0:#,##0.00}", @Model.SumInsuredTotals)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Premium:</b>
+            </td>
+            <td align="right">
+                @String.Format("{0:#,##0.00}", @Model.PremiumTotals)
+            </td>
+        </tr>
+    </tbody>
+</table>

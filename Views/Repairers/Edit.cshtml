@@ -1,0 +1,34 @@
+@model Isas.Models.InsurerViewModels.RepairerViewModel
+
+@{
+    ViewData["Title"] = "Edit Repairer";
+}
+
+<h2>Edit Repairer</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Repairer</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Repairer.ID" />
+        <input type="hidden" asp-for="Repairer.PayeeClassID" />
+        <div class="form-group">
+            <label asp-for="Repairer.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Repairer.Name" class="form-control" />
+                <span asp-validation-for="Repairer.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-payeeclassId="@Model.Repairer.PayeeClassID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

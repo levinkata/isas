@@ -1,0 +1,65 @@
+@model Isas.Models.InsurerViewModels.FormatTypeViewModel
+
+@{
+    ViewData["Title"] = "Edit Format Type";
+}
+
+<h2>Edit Format Type</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Format Type</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="UploadFileType" />
+        <input type="hidden" asp-for="FormatType.ID" />
+        <input type="hidden" asp-for="FormatType.TableName" />
+        <input type="hidden" asp-for="FormatType.FieldName" />
+        <input type="hidden" asp-for="FormatType.LoadFormatID" />
+        <input type="hidden" asp-for="FormatType.IsKey" />
+        <div class="form-group">
+            <label asp-for="FormatType.FieldLabel" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FormatType.FieldLabel" readonly="readonly" class="form-control" />
+                <span asp-validation-for="FormatType.FieldLabel" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="FormatType.Position" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FormatType.Position" class="form-control" />
+                <span asp-validation-for="FormatType.Position" class="text-danger"></span>
+            </div>
+        </div>
+        @if (Model.UploadFileType == Isas.Models.UploadFileTypes.FixedLengthDelimited)
+        {
+            <div class="form-group">
+                <label asp-for="FormatType.ColumnLength" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="FormatType.ColumnLength" class="form-control" />
+                    <span asp-validation-for="FormatType.ColumnLength" class="text-danger"></span>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-controller="LoadFormats"
+                   asp-action="EditFormatType"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-loadFormatId="@Model.FormatType.LoadFormatID"
+                   asp-route-tableName="@Model.FormatType.TableName"
+                   asp-route-uploadFileType="@Model.UploadFileType"
+                   class="btn btn-default btn">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

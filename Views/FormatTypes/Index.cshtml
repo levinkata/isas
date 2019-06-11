@@ -1,0 +1,92 @@
+@model Isas.Models.InsurerViewModels.FormatTypesViewModel
+
+@{
+    ViewBag.Title = "Format Types";
+}
+
+<br/><br />
+
+@if (Model.UploadFileType == Isas.Models.UploadFileTypes.Excel || Model.UploadFileType == Isas.Models.UploadFileTypes.CSV)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Field Name
+                </th>
+                <th>
+                    Position
+                </th>
+                <th>
+                    Is Key?
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.FormatTypes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FieldName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsKey)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.UploadFileType == Isas.Models.UploadFileTypes.FixedLengthDelimited)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Field Name
+                </th>
+                <th>
+                    Position
+                </th>
+                <th>
+                    Column Length
+                </th>
+                <th>
+                    Is Key?
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.FormatTypes)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FieldName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ColumnLength)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsKey)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

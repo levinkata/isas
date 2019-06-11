@@ -1,0 +1,75 @@
+@model Isas.Models.InsurerViewModels.LoadFormatViewModel
+
+@{
+    ViewData["Title"] = "New File Format";
+}
+
+<h2>New File Format</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>File Format</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <div class="form-group">
+            <label asp-for="LoadFormat.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LoadFormat.Name" class="form-control" />
+                <span asp-validation-for="LoadFormat.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LoadFormat.UploadFileType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="LoadFormat.UploadFileType" id="FileType" class="form-control" asp-items="@Model.FileTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group" hidden="hidden" id="Delimiter">
+            <label asp-for="LoadFormat.Delimiter" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LoadFormat.Delimiter" class="form-control" />
+                <span asp-validation-for="LoadFormat.Delimiter" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-action="Index"
+                   asp-route-productId="@Model.ProductID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}    
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var fileType = $("#FileType").val();
+
+            if (fileType == "1" || fileType == "3") {
+                $('#Delimiter').hide();
+            }
+            else if (fileType == "2") {
+                $('#Delimiter').show();
+            };
+        });
+
+        $('#FileType').on('change', function () {
+            var fileType = $("#FileType").val();
+
+            if (fileType == "2") {
+                $('#Delimiter').show();
+            }
+            else if (fileType == "1" || fileType == "3") {
+                $('#Delimiter').hide();
+            }
+        });
+
+    </script>
+}

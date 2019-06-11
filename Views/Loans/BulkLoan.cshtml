@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model Isas.Models.InsurerViewModels.UpLoadLoanViewModel
+
+@{
+    ViewData["Title"] = "Upload Loan File";
+    Guid productId = Guid.Parse(Context.Session.GetString("ProductID"));
+}
+
+<h2>Upload Loan File</h2>
+
+<form asp-action="BulkLoan" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Loan File</h4>
+        <hr />
+        <input type="hidden" asp-for="LoadFormatID" />
+        <input type="hidden" asp-for="UploadFileType" />
+        <input type="hidden" asp-for="Delimiter" />
+        <input type="hidden" asp-for="TableName" />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Enter Data Row #:</label>
+            <div class="col-md-10">
+                <input asp-for="StartRow" class="form-control" />
+                <span asp-validation-for="StartRow" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Select file to load:</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="UpLoadFile" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ComponentID" class="col-md-2 control-label">Compoenent</label>
+            <div class="col-md-10">
+                <select asp-for="ComponentID" class="form-control" asp-items="@Model.ComponentList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Selected Files" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="SelectLoadFormat"
+       asp-route-productId="@productId"
+       class="btn btn-default">
+       Return
+    </a>
+</div>

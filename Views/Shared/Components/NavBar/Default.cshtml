@@ -1,0 +1,30 @@
+﻿@{
+    List<int> selecteditem = new List<int>() { 0, 1, 2 };
+}
+
+<ej-accordion id="basicAccordion" enable-multiple-open="true" selected-items=selecteditem>
+    <e-accordion-items>
+        <e-accordion-item text="ASP.NET">
+            <e-content-template>
+                <li><a asp-controller="Banks" asp-action="Index">Banks</a></li>
+                <li><a asp-controller="Insurers" asp-action="Index">Insurers</a></li>
+            </e-content-template>
+        </e-accordion-item>
+        <e-accordion-item text="ASP.NET MVC">
+            <e-content-template>
+                <li><a asp-controller="LossAdjusters" asp-action="Index">Loss Adjusters</a></li>
+                <li><a asp-controller="Repairers" asp-action="Index">Repairers</a></li>
+                <li><a asp-controller="TracingAgents" asp-action="Index">Tracing Agents</a></li>
+                <li><a asp-controller="Attorneys" asp-action="Index" asp-route-payeeclassId="1">Attorneys</a></li>
+            </e-content-template>
+        </e-accordion-item>
+        <e-accordion-item text="Javascript">
+            <e-content-template>
+                <li><a asp-controller="LossAdjusters" asp-action="Index">Loss Adjusters</a></li>
+                <li><a asp-controller="Repairers" asp-action="Index">Repairers</a></li>
+                <li><a asp-controller="TracingAgents" asp-action="Index">Tracing Agents</a></li>
+                <li><a asp-controller="Attorneys" asp-action="Index" asp-route-payeeclassId="1">Attorneys</a></li>
+            </e-content-template>
+        </e-accordion-item>
+    </e-accordion-items>
+</ej-accordion>

@@ -1,0 +1,429 @@
+﻿@model Isas.Models.InsurerViewModels.SelectedPolicyRisk
+@{
+    ViewBag.Title = "Add Claim Policy Risk";
+}
+
+<h2>Add Claim Policy Risk</h2>
+
+
+@if (Model.allrisks.Count() > 0)
+{
+    <h5>All Risk</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Component
+                </th>
+                <th>
+                    Start Date
+                </th>
+                <th>
+                    End Date
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.allrisks)
+            {
+                @foreach (var _item in Model.allrisks)
+                {
+                    @*@if (item.RiskItemID == _item.ID)
+                    {*@
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => _item.Component.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => _item.Value)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => _item.Premium)
+                            </td>
+                            <td>
+                                <a asp-action="Create"
+                                   asp-route-containerid="@Model.ContainerID"
+                                   asp-route-productid="@Model.ProductID"
+                                   asp-route-clientid="@Model.ClientID"
+                                   asp-route-policyid="@Model.PolicyID"
+                                   asp-route-policyriskid="@item.ID">Select</a>
+                            </td>
+                        </tr>
+                    }
+
+                @*}==*@
+            }
+        </tbody>
+    </table>
+    <hr />
+}
+
+@*@if (Model.Commercials.Count() > 0)
+{
+    <h5>Commercial</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Motor
+                </th>
+                <th>
+                    Rate
+                </th>
+                <th>
+                    Sum Insured
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemcommercial in Model.Commercials)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.Component.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.IsMotor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcommercial.Premium)
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@itemcommercial.ID">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@itemcommercial.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+}
+
+@if (Model.Contents.Count() > 0)
+{
+    <h5>Contents</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Sum Insured
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th>
+                    Wall
+                </th>
+                <th>
+                    Roof
+                </th>
+                <th>
+                    Residence
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemcontent in Model.Contents)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.Location)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.WallType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.RoofType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemcontent.ResidenceType.Name)
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@itemcontent.ID">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@itemcontent.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+}
+
+@if (Model.Loans.Count() > 0)
+{
+    <h5>Loan</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Account Number
+                </th>
+                <th>
+                    Term
+                </th>
+                <th>
+                    Rate
+                </th>
+                <th>
+                    Loan Date
+                </th>
+                <th>
+                    Sum Insured
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th>
+                    Settlement Date
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemloan in Model.Loans)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.Component.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.Term)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.LoanDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemloan.SettlementDate)
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@itemloan.ID">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@itemloan.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+}
+
+@if (Model.Motors.Count() > 0)
+{
+    <h5>Motor</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Registration
+                </th>
+                <th>
+                    Make
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Engine Number
+                </th>
+                <th>
+                    Chassis Number
+                </th>
+                <th>
+                    Sum Insured
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th>
+                    Cover
+                </th>
+                <th>
+                    CFG
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemmotor in Model.Motors)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.RegistrationNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.MotorMake.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.ManufacturerYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.EngineNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.ChassisNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.CoverType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemmotor.CFG)
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@itemmotor.ID">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@itemmotor.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+}
+
+@if (Model.Properties.Count() > 0)
+{
+    <h5>Property</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Sum Insured
+                </th>
+                <th>
+                    Premium
+                </th>
+                <th>
+                    Cover
+                </th>
+                <th>
+                    Wall
+                </th>
+                <th>
+                    Roof
+                </th>
+                <th>
+                    Residence
+                </th>
+                <th>
+                    Bond Holder
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var itemproperty in Model.Properties)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.Location)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.Value)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.Premium)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.CoverType.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.WallType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.RoofType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.ResidenceType.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => itemproperty.BondHolder)
+                    </td>
+                    <td>
+                        <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@itemproperty.ID">Details</a> |
+                        <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@itemproperty.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+}*@
+
+
+<div>
+    <a asp-controller="Policies"
+       asp-action="Index"
+       asp-route-productid="@Model.ProductID"
+       asp-route-clientid="@Model.ClientID"
+       class="btn btn-default">Return</a>
+</div>

@@ -1,0 +1,70 @@
+﻿-------------------------------------------------------------------------
+Examples of Package Manager Console -- Levi Nkata - 01/05/2019
+-------------------------------------------------------------------------
+
+PM>Add-Migration InitialCreate -Project Isas -Context InsurerDbContext
+PM>Update-Database -Project Isas -Context InsurerDbContext
+
+PM>Add-Migration InitialCreate -Project Isas -Context ApplicationDbContext
+PM>Update-Database -Project Isas -Context ApplicationDbContext
+
+PM>Drop-Database -Project Isas -Context InsurerDbContext
+PM>Remove-Migration -Project Isas -Context InsurerDbContext
+
+PM>Drop-Database -Project Isas -Context ApplicationDbContext
+PM>Remove-Migration -Project Isas -Context ApplicationDbContext
+
+-------------------------------------------------------------------------
+To Seed Users and Roles
+-------------------------------------------------------------------------
+
+http://www.binaryintellect.net/articles/5e180dfa-4438-45d8-ac78-c7cc11735791.aspx
+
+
+-------------------------------------------------------------------------
+Automatically validating anti-forgery tokens in ASP.NET Core with the
+AutoValidateAntiforgeryTokenAttribute
+-------------------------------------------------------------------------
+
+https://andrewlock.net/automatically-validating-anti-forgery-tokens-in-asp-net-core-with-the-autovalidateantiforgerytokenattribute/
+
+
+-------------------------------------------------------------------------
+Insurance Dashboards
+-------------------------------------------------------------------------
+
+https://www.inetsoft.com/evaluate/bi_visualization_gallery/page.jsp?dbIdx=110
+
+https://www.idashboards.com/solutions/insurance-dashboards/
+
+https://www.sisense.com/dashboard-examples/healthcare/insurance-claims/
+
+https://youtu.be/YCuryPObqGw
+
+https://www.lintao-dashboards.com/insurance-dashboard/
+
+-------------------------------------------------------------------------
+Entities
+-------------------------------------------------------------------------
+
+Property => Homewoners
+Motor => Auto
+****** => Life
+Commercial => Business
+***** => Recreation
+
+-------------------------------------------------------------------------
+Notes
+-------------------------------------------------------------------------
+
+C#
+
+Copy
+// GET: /HelloWorld/Welcome/ 
+// Requires using System.Text.Encodings.Web;
+public string Welcome(string name, int numTimes = 1)
+{
+    return HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
+}
+
+// UsesHtmlEncoder.Default.Encode to protect the app from malicious input (namely JavaScript).

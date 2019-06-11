@@ -1,0 +1,193 @@
+﻿@model Isas.Models.InsurerViewModels.RiskClaimDocumentViewModel
+
+@{
+    ViewBag.Title = "New Risk Claim Document";
+}
+
+<h2>New Risk Claim Document</h2>
+
+<h4>Risk Claim Document</h4>
+<hr />
+<div class="form-group">
+    <label asp-for="RiskID" class="col-md-2 control-label">Risk</label>
+    <div class="col-md-10">
+        <select asp-for="RiskID" class="form-control" asp-items="@Model.Risks"></select>
+    </div>
+</div>
+
+<br /><br />
+<table class="table">
+    <tr>
+        <td align="center">
+            Available Claim Document
+            <select asp-for="Available" class="form-control" style="height: 250px; width: 200px; overflow: auto;"
+                    asp-items="@Model.ClaimDocumentList"></select>
+        </td>
+        <td align="center">
+            <br /><br /><br /><br />
+            <input type="button" value=">" id="right" class="btn btn-default" style="width: 50px;" /><br />
+            <input type="button" value="<" id="left" class="btn btn-default" style="width: 50px;" /><br />
+            <input type="button" value=">>" id="rightAll" class="btn btn-default" style="width: 50px;" /><br />
+            <input type="button" value="<<" id="leftAll" class="btn btn-default" style="width: 50px;" /><br />
+        </td>
+        <td align="center">
+            Assigned Claim Documents
+            <select asp-for="Assigned" class="form-control" style="height: 250px; width: 200px; overflow: auto;"
+                    asp-items="@Model.RiskClaimDocumentList"></select>
+        </td>
+    </tr>
+
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-default">Return</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#RiskID').on('change', function () {
+                var selectedRiskId = $("#RiskID").val();
+
+                $.ajax({
+                    url: '@(Url.Action("FillDocumentsListBoxes"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskid: selectedRiskId },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.riskclaimdocuments, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.claimdocuments, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            });
+
+            $('#right').on('click', function () {
+                var itemsSelected = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Available option:selected').each(function () {
+                    itemsSelected.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("AddRiskClaimDocuments"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, claimdocuments: itemsSelected },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskclaimdocuments, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedclaimdocuments, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#rightAll').on('click', function () {
+                var itemsAll = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Available option').each(function () {
+                    itemsAll.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("AddRiskClaimDocuments"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, claimdocuments: itemsAll },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskclaimdocuments, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedclaimdocuments, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#left').on('click', function () {
+                var itemsSelected = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Assigned option:selected').each(function () {
+                    itemsSelected.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("RemoveRiskClaimDocuments"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, claimdocuments: itemsSelected },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskclaimdocuments, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedclaimdocuments, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#leftAll').on('click', function () {
+                var itemsAll = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Assigned option').each(function () {
+                    itemsAll.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("RemoveRiskClaimDocuments"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, claimdocuments: itemsAll },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskclaimdocuments, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedclaimdocuments, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+}

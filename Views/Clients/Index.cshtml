@@ -1,0 +1,130 @@
+@model PaginatedList<Isas.Models.Client>
+
+@{
+    ViewData["Title"] = "Clients";
+
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+
+    string FullName = string.Empty;
+}
+
+<h2>Clients</h2>
+
+<form asp-action="Index" method="get">
+    <h4>Clients</h4>
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Find by name: </label>
+            <div class="col-md-10">
+                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-warning btn" /> |
+                <a asp-action="Index" class="btn btn-bracketed">Full List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Clients</caption>
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSortParm">Last Name</a>
+            </th>
+            <th>
+                @*First Name*@
+                @Html.DisplayNameFor(Model => Model[0].FirstName)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.IDSortParm">@Html.DisplayNameFor(Model => Model[0].IDNumber)</a>
+            </th>
+            <th>
+                @*Gender*@
+                @Html.DisplayNameFor(Model => Model[0].Gender)
+            </th>
+            <th>
+                @*Birth Date*@
+                @Html.DisplayNameFor(Model => Model[0].BirthDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            @if (item.Payable == false)
+            {
+                <td>
+                    @{FullName = (item.FirstName == null) ? item.LastName : item.FirstName + ' ' + item.LastName; }
+                    <a asp-controller="Payees"
+                       asp-action="Create"
+                       asp-route-payeeClassId="@item.PayeeClassID"
+                       asp-route-payeeItemId="@item.ID"
+                       asp-route-payeeName="@FullName">
+                       Make Payee
+                    </a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <label>Payee</label> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-info @prevDisabled btn">
+        Previous
+    </a>
+    <a asp-action="Index"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-info @nextDisabled btn">
+        Next
+    </a> |
+    <a asp-action="Create"
+       asp-route-payeeclassId="@ViewData["PayeeClassID"]"
+       class="btn btn-success">
+        + Add Client
+    </a> |
+    <a asp-action="Grid"
+       asp-route-payeeclassId="@ViewData["PayeeClassID"]"
+       class="btn btn-warning">
+        Syncfusion
+    </a>
+</div>
+

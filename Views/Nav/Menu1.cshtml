@@ -1,0 +1,12 @@
+@model IEnumerable<string>
+
+@{
+    Layout = null;
+}
+
+<a asp-controller="Risks" asp-action="Index" class="btn btn-block btn-default btn-lg">Risks</a>
+
+@foreach (var item in @Model)
+{
+    <a asp-controller="Risks" asp-action="Index" class="btn btn-block btn-default btn-lg">@item</a>
+}

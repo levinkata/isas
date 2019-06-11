@@ -1,0 +1,29 @@
+@model Isas.Models.TracingAgent
+
+@{
+    ViewData["Title"] = "Tracing Agent Details";
+}
+
+<h2>Tracing Agent Details</h2>
+
+<div>
+    <h4>Tracing Agent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt></dt>
+        <dd>
+            @await Component.InvokeAsync("Addresses", new { id = Model.ID, containername = "TracingAgents" })
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-default">Edit</a> |
+    <a asp-action="Index" class="btn btn-info">Return</a>
+</div>

@@ -1,0 +1,48 @@
+@model Isas.Models.InsurerViewModels.ThirdPartyViewModel
+ 
+@{
+    ViewData["Title"] = "Edit Third Party";
+}
+
+<h2>Edit Third Party</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Third Party</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ThirdParty.ID" />
+        <input type="hidden" asp-for="ThirdParty.PayeeClassID" />
+        <div class="form-group">
+            <label asp-for="ThirdParty.FirstName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ThirdParty.FirstName" class="form-control" />
+                <span asp-validation-for="ThirdParty.FirstName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ThirdParty.LastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ThirdParty.LastName" class="form-control" />
+                <span asp-validation-for="ThirdParty.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ThirdParty.IDNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ThirdParty.IDNumber" class="form-control" />
+                <span asp-validation-for="ThirdParty.IDNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-payeeClassId="@Model.ThirdParty.PayeeClassID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

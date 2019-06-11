@@ -1,0 +1,63 @@
+﻿@model Isas.Models.InsurerViewModels.PayeeBankAccountsViewModel
+
+@{
+    ViewData["Title"] = "Bank Accounts";
+}
+
+<h2>Bank Accounts</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Bank Accounts</caption>
+    <thead>
+        <tr>
+            <th>
+                Bank
+            </th>
+            <th>
+                Branch
+            </th>
+            <th>
+                Account Number
+            </th>
+            <th>
+                Branch Code
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.BankAccounts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankBranch.Bank.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankBranch.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccountNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankBranch.BIC)
+                </td>
+                <td>
+                    <a asp-controller="Payees" asp-action="DeleteBankAccount" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="AddBankAccount"
+       asp-route-payeeId="@Model.PayeeID"
+       class="btn btn-success">
+        + Add Bank Account
+    </a> |
+    <a asp-action="Index"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

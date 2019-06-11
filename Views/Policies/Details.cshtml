@@ -1,0 +1,107 @@
+@model Isas.Models.Policy
+
+@{
+    ViewData["Title"] = "Policy Details";
+}
+
+<h2>Policy Details</h2>
+
+<div>
+    <h4>Policy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsurerNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InsurerNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Insurer.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Insurer.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyFrequency.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyFrequency.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectiveDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EffectiveDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExpireDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyStatus.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyStatus.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PremiumDueDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PremiumDueDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyVersion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PolicyVersion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InceptionDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InceptionDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Renewable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Renewable)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StatusDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeClass.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IncomeClass.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-default">Edit</a> |
+    <a asp-action="Index"
+       @*asp-route-productid="@Model.ProductID"*@
+       asp-route-clientid="@Model.ClientID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

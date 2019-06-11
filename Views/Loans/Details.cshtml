@@ -1,0 +1,60 @@
+@model Isas.Models.Loan
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AccountNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LoanDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Premium)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Premium)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SettlementDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SettlementDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Term)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Term)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

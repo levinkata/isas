@@ -1,0 +1,57 @@
+@model PaginatedList<Isas.Models.MotorModel>
+
+@{
+    ViewData["Title"] = "Models";
+}
+
+<h2>Models</h2>
+
+<p>
+    <a asp-action="Create" asp-route-motormakeid="@ViewData["MotorMakeID"]">Add Model</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Model
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-motormakeid="@ViewData["MotorMakeID"]"
+   asp-route-page="@(Model.PageIndex - 1)"
+   class="btn btn-default @prevDisabled btn">
+    Previous
+</a>
+
+<a asp-action="Index"
+   asp-route-motormakeid="@ViewData["MotorMakeID"]"
+   asp-route-page="@(Model.PageIndex + 1)"
+   class="btn btn-default @nextDisabled btn">
+    Next
+</a>
+
+<a asp-controller="MotorMakes" asp-action="Index">Return</a>

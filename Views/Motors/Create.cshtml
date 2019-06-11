@@ -1,0 +1,201 @@
+@model Isas.Models.InsurerViewModels.MotorViewModel
+
+@{
+    ViewData["Title"] = "New Motor";
+}
+
+<h2>New Motor</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Motor</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="PolicyID" />
+        <div class="form-group">
+            <label asp-for="Motor.RegistrationNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.RegistrationNumber" class="form-control" />
+                <span asp-validation-for="Motor.RegistrationNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.MotorTypeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Motor.MotorTypeID" class="form-control" asp-items="Model.MotorTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.MotorMakeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Motor.MotorMakeID" id="MotorMakeID" class="form-control" asp-items="Model.MotorMakeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.MotorModelID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Motor.MotorModelID" id="MotorModelID" class="form-control" asp-items="Model.MotorModelList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.ManufacturerYear" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.ManufacturerYear" class="form-control" />
+                <span asp-validation-for="Motor.ManufacturerYear" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.EngineNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.EngineNumber" class="form-control" />
+                <span asp-validation-for="Motor.EngineNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.ChassisNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.ChassisNumber" class="form-control" />
+                <span asp-validation-for="Motor.ChassisNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.Value" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.Value" class="form-control" />
+                <span asp-validation-for="Motor.Value" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.Premium" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.Premium" class="form-control" />
+                <span asp-validation-for="Motor.Premium" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.StartDate" class="form-control" />
+                <span asp-validation-for="Motor.StartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.EndDate" readonly="readonly" class="form-control" />
+                <span asp-validation-for="Motor.EndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.CoverageID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Motor.CoverageID" class="form-control" asp-items="Model.CoverageList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.DriverTypeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Motor.DriverTypeID" class="form-control" asp-items="Model.DriverTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Motor.PrivateUse" />
+                    <label asp-for="Motor.PrivateUse"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Motor.BusinessUse" />
+                    <label asp-for="Motor.BusinessUse"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Motor.CFG" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.CFG" class="form-control" />
+                <span asp-validation-for="Motor.CFG" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Motor.Immobiliser" />
+                    <label asp-for="Motor.Immobiliser"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Motor.Alarm" />
+                    <label asp-for="Motor.Alarm"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Motor.GreyImport" />
+                    <label asp-for="Motor.GreyImport"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Motor.TerritorialLimit" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Motor.TerritorialLimit" id="TerritorialLimit" class="form-control" />
+                <span asp-validation-for="Motor.TerritorialLimit" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-controller="Policies"
+                   asp-action="PolicyRisks"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        $("#MotorMakeID").change(function () {
+            var motorMakeId = $("#MotorMakeID").val();
+
+            $.ajax({
+                url: "@(Url.Action("MotorModels"))",
+                dataType: "JSON",
+                type: "POST",
+                data: { motorMakeId: motorMakeId },
+                error: function () {
+                    alert(" An error occurred.");
+                },
+                success: function (data) {
+                    debugger;
+                    $("#MotorModelID").empty();   // clear before appending new list
+                    $.each(data, function (i, inc) {
+                        $('#MotorModelID').append($('<option></option>').val(inc.id).html(inc.name));
+                    });
+                }
+            });
+        });
+    </script>
+}

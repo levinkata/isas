@@ -1,0 +1,172 @@
+﻿@model Isas.Models.InsurerViewModels.ClientsViewModel
+
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<h2>Clients</h2>
+
+<div>
+    <a asp-action="Create"
+       asp-route-payeeclassId="@Model.PayeeClassID"
+       class="btn btn-success">
+        + Add Client
+    </a> |
+    <ej-button id="btnOpen" text="Set Selected Record to Payee" click="onclick" />
+</div>
+
+<div class="control">
+    <ej-dialog id="basicDialog" title="Payee" is-responsive="true" close="onDialogClose" show-on-init="false">
+        <e-content-template>
+            Please select Grid row before clicking this button.
+        </e-content-template>
+    </ej-dialog>
+</div>
+
+<span style="color:royalblue">Grid / Default</span>
+
+<ej-grid id="FlatGrid" allow-paging="true" allow-sorting="true" datasource="Model.Clients"
+         allow-filtering="true" allow-resizing="true" query-cell-info="querycellinfo"
+         grid-lines="Horizontal" row-selected="rowSelected">
+    <e-toolbar-settings show-toolbar="true"
+                        toolbar-items="@(new List<string>() {"Edit", "excelExport","wordExport","pdfExport", "PrintGrid" })">
+    </e-toolbar-settings>
+    <e-edit-settings allow-editing="true" edit-mode="Dialog"></e-edit-settings>
+    
+    <e-columns>
+        <e-column field="ID" is-primary-key="true" visible="false"></e-column>
+        <e-column field="LastName" header-text="Last Name"></e-column>
+        <e-column field="FirstName" header-text="First Name"></e-column>
+        <e-column field="Gender" header-text="Gender"></e-column>
+        <e-column field="IDNumber" header-text="ID Number"></e-column>
+        @*<e-column field="Country" header-text="Country" edit-type="Dropdown"></e-column>*@
+        <e-column field="BirthDate" header-text="Birth Date" format="{0:dd/MM/yyyy}"></e-column>
+        @*<e-column field="Occupation" header-text="Occupation" edit-type="Dropdown"></e-column>*@
+        <e-column field="Payable" visible="false"></e-column>
+    </e-columns>
+</ej-grid>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    <script>
+        function querycellinfo(args) {
+            if (args.column.field == "Payable" && args.data.Payable == true)
+                $($(args.cell).parent()).css("color", "blue");      //  css("backgroundColor", "blue")
+
+            if (args.column.field == "Payable" && args.data.Payable == false)
+                $($(args.cell).parent()).css("color", "black");
+            }
+    </script>
+
+    <style>
+        .Bold:before {
+            content: "\e636";
+        }
+    </style>
+
+    <script id="Refresh" type="text/x-jsrender">
+        @Html.ActionLink("Make Payee", "Create", "Payees", new {
+                            payeeclassId = Model.PayeeClassID, payeeitemId = 3, payeeName = "" } )
+    </script>
+
+    <script type="text/x-jsrender" id="Details">
+        <button class="details">Add</button>
+    </script>
+
+    <script id="dialog" type="text/x-jsrender">
+        <div>
+            <table>
+                <tr><td>Last Name</td><td>{{:LastName}}</td></tr>
+                <tr><td>First Name</td><td>{{:FirstName}}</td></tr>
+                <tr><td>Gender</td><td>{{:Gender}}</td></tr>
+                <tr><td>ID NUmber</td><td>{{:IDNumber}}</td></tr>
+            </table>
+        </div>
+    </script>
+
+    <script>
+        function clicked(sender) {
+            $target = $(sender.target);
+            var gridObj = $("#FlatGrid").data("ejGrid");
+            var rowIndex = gridObj.model.selectedRowIndex;
+            var tr = grodObj.getRows()[rowIndex];
+            if ($target.hasClass("Bold")) {
+                if ($(tr).hasClass("bolded"))
+                    $(tr).css("font-weight", "normal").removeClass("bolded");
+                else
+                    $(tr).css("font-weight", "bold").addClass("bolded");
+            }
+
+        }
+
+        function onclick() {
+            //$("#basicDialog").ejDialog("open");
+            //$("#btnOpen").hide();
+
+            var gridObj = $("#FlatGrid").data("ejGrid");
+            //var rowIndex = gridObj.model.selectedRowIndex;
+
+
+            if (gridObj.getSelectedRecords().length != 0) {
+                var classId = "@(Model.PayeeClassID)";
+                var currentRowData = gridObj.getSelectedRecords()[0];
+                var ID = currentRowData.ID;
+                var FullName = (currentRowData.FirstName == null) ?
+                    currentRowData.LastName : currentRowData.FirstName + ' ' + currentRowData.LastName;
+                
+                $.ajax({
+                    url: "@(Url.Action("Create", "Payees"))",
+                    type: "POST",
+                    dataType: "json",
+                    data: { payeeclassId: classId, payeeitemId: ID, payeeName: FullName },
+                    success: function (data) {
+                        alert(data);
+                    }
+                })
+            }
+            else {
+                $("#basicDialog").ejDialog("open");
+            }
+        }
+
+        function onDialogClose(args) {
+            $("#btnOpen").show();
+        }
+
+        function rowSelected(args) {
+            var selectedrowindex = this.selectedRowsIndexes;  // get selected row indexes
+            //alert(selectedrowindex);
+
+            var selectedrecords = this.getSelectedRecords();  // get selected records
+            id = selectedrecords[0].ID;
+            fn = selectedrecords[0].FirstName;
+            ln = selectedrecords[0].LastName;
+
+            //alert(id);
+            //alert(fn);
+            //alert(ln);
+        }
+
+        $(function LoadData (data) {
+            $("#Grid").ejGrid({
+                dataSource: data,
+                actionComplete: "complete",
+                allowPaging: true,
+                allowSorting: true,
+                actionBegin: "actionbegin",
+                actionFailure: "FailureEvent",
+                toolbarSettings: { showToolbar: true, toolbarItems: [ej.Grid.ToolBarItems.Add, ej.Grid.ToolBarItems.Edit, ej.Grid.ToolBarItems.Delete, ej.Grid.ToolBarItems.Update, ej.Grid.ToolBarItems.Cancel] },
+                columns: [
+                        { field: "ID", isPrimaryKey: true, headerText: "Order ID", textAlign: ej.TextAlign.Right, validationRules: { required: true, number: true }, width: 90 },
+                        { field: "LastName", headerText: 'Customer ID', validationRules: { required: true, minlength: 3 }, width: 90 },
+                        { field: "FirstName", headerText: 'Employee ID', textAlign: ej.TextAlign.Right, width: 80, validationRules: { number: true } },
+                        { field: "Gender", headerText: 'Freight', textAlign: ej.TextAlign.Right, editType: ej.Grid.EditingType.Numeric, editParams: { decimalPlaces: 2 }, validationRules: { range: [0, 1000] }, width: 80, format: "{0:C}" },
+                        { field: "IDNumber", headerText: 'Ship Name', width: 150 },
+                        { field: "Country", headerText: 'Ship Country', width: 90 }
+                ]
+            });
+        });
+    </script>
+    }
+

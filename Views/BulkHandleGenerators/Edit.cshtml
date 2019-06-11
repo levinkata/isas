@@ -1,0 +1,73 @@
+@model Isas.Models.BulkHandleGenerator
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>BulkHandleGenerator</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="BulkNumber" />
+        <div class="form-group">
+            <label asp-for="AddedBy" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AddedBy" class="form-control" />
+                <span asp-validation-for="AddedBy" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BulkDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BulkDate" class="form-control" />
+                <span asp-validation-for="BulkDate" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateAdded" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="DateAdded" class="form-control" />
+                <span asp-validation-for="DateAdded" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="RecordCount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="RecordCount" class="form-control" />
+                <span asp-validation-for="RecordCount" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TableName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TableName" class="form-control" />
+                <span asp-validation-for="TableName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

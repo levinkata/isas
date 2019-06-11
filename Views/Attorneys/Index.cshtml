@@ -1,0 +1,60 @@
+@model Isas.Models.InsurerViewModels.AttorneysViewModel
+
+@{
+    ViewData["Title"] = "Attorneys";
+}
+
+<h2>Attorneys</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Attorneys</caption>
+    <thead>
+        <tr>
+            <th>
+                Attorney
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Attorneys) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            @if (item.Payable == false)
+            {
+                <td>
+                    <a asp-controller="Payees"
+                       asp-action="Create"
+                       asp-route-payeeClassId="@item.PayeeClassID"
+                       asp-route-payeeItemId="@item.ID"
+                       asp-route-payeeName="@item.Name">
+                        Make Payee
+                    </a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <label>Payee</label> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       asp-route-payeeclassId="@Model.PayeeClassID"
+       class="btn btn-success">
+        + Add Attorney
+    </a>
+</div>

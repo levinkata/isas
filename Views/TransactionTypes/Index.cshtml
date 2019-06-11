@@ -1,0 +1,37 @@
+@model IEnumerable<Isas.Models.TransactionType>
+
+@{
+    ViewData["Title"] = "Transaction Types";
+}
+
+<h2>Transaction Types</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       class="btn btn-default btn">
+        Add Transaction Type
+    </a>
+</div>

@@ -1,0 +1,40 @@
+@model Isas.Models.ThirdParty
+
+@{
+    ViewData["Title"] = "Third Party Details";
+}
+
+<h2>Third Party Details</h2>
+
+<div>
+    <h4>Third Party</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IDNumber)
+        </dd>
+        <dt></dt>
+        <dd>
+            @await Component.InvokeAsync("Addresses", new { id = Model.ID, containername = "ThirdParties" })
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-default">Edit</a> |
+    <a asp-action="Index" asp-route-payeeClassId="@Model.PayeeClassID" class="btn btn-info">Return</a>
+</div>

@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@model Isas.Models.Client
+
+@{
+    ViewBag.Title = "Add Client to Product";
+    Guid productId = Guid.Parse(Context.Session.GetString("ProductID"));
+}
+
+<h2>Add Client to Product</h2>
+
+@if (ViewData["RecordAdded"] == null)
+{
+    <form asp-action="AddClient" asp-antiforgery="true">
+        <div class="form-actions no-color">
+            <p>
+                Do you want to continue to add: <br /><br />
+                
+                @Html.DisplayFor(model => model.FirstName ) @Html.DisplayFor(model => model.LastName) <br /><br />
+            </p>
+            <p>
+                <input type="hidden" name="productId" value="@productId" />
+                <input type="hidden" name="clientId" value="@Model.ID" />
+                <input type="submit" value="Confirm" class="btn btn-default" /> |
+                <a asp-action="CreateProductClient"
+                   asp-route-productId="@productId"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </p>
+        </div>
+    </form>
+}
+else if (ViewData["RecordAdded"] != null)
+{
+    <div>
+        <br /><br />@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName) has been added successfully. <br /><br />
+        <a asp-action="CreateProductClient"
+           asp-route-productId="@productId"
+           class="btn btn-info">
+            Return
+        </a>
+    </div>
+}

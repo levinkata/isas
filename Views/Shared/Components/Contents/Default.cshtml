@@ -1,0 +1,82 @@
+﻿@model Isas.Models.InsurerViewModels.ContentsViewModel
+
+@{
+    ViewData["Title"] = "Contents";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Contents</caption>
+    <thead>
+        <tr>
+            <th>
+                Location
+            </th>
+            <th>
+                Sum Insured
+            </th>
+            <th>
+                Premium
+            </th>
+            <th>
+                Wall
+            </th>
+            <th>
+                Roof
+            </th>
+            <th>
+                Residence
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Contents)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Premium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WallType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoofType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResidenceType.Name)
+                </td>
+                <td>
+                    <a asp-controller="Claims"
+                       asp-action="Create"
+                       asp-route-productId="@Model.ProductID"
+                       asp-route-clientId="@Model.ClientID"
+                       asp-route-policyId="@Model.PolicyID"
+                       asp-route-riskId="3"
+                       asp-route-riskitemId="@item.ID">
+                        Add Claim
+                    </a> |
+                    <a asp-controller="Products" asp-action="DetailsProductRisk" asp-route-id="@item.ID">Details</a> |
+                    <a asp-controller="Products" asp-action="DeleteProductRisk" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Contents"
+       asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-success">
+        + Add Content
+    </a>
+</div>

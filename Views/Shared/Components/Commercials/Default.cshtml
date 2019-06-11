@@ -1,0 +1,94 @@
+﻿@model Isas.Models.InsurerViewModels.CommercialsViewModel
+
+@{
+    ViewData["Title"] = "Commercial";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Commercial</caption>
+    <thead>
+        <tr>
+            <th>
+                Component
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Motor
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                Value
+            </th>
+            <th>
+                Premium
+            </th>
+            <th>
+                StartDate
+            </th>
+            <th>
+                EndDate
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Commercials)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Component.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Motor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Premium)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    <a asp-controller="Claims"
+                       asp-action="Create"
+                       asp-route-productId="@Model.ProductID"
+                       asp-route-clientId="@Model.ClientID"
+                       asp-route-policyId="@Model.PolicyID"
+                       asp-route-riskId="2"
+                       asp-route-riskitemId="@item.ID">
+                        Add Claim
+                    </a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Commercials"
+       asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-success">
+        + Add Commercial
+    </a>
+</div>

@@ -1,0 +1,90 @@
+﻿@model Isas.Models.InsurerViewModels.ProductClaimsViewModel
+
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h2>Claims</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@Model.ProductName - Claims</caption>
+    <thead>
+        <tr>
+            <th>
+                Claim Number
+            </th>
+            <th>
+                Incident Date
+            </th>
+            <th>
+                Register Date
+            </th>
+            <th>
+                Reserve Insured Revised
+            </th>
+
+            <th>
+                Reserve ThirdParty Revised
+            </th>
+            <th>
+                Claim Excess
+            </th>
+            <th>
+                Claim Class
+            </th>
+            <th>
+                Incident
+            </th>
+            <th>
+                Region
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Claims)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncidentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ReserveInsuredRevised)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ReserveThirdPartyRevised)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ClaimExcess)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimClass.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Incident.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region.Name)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ClaimNumber">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-id="@Model.ProductID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

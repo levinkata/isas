@@ -1,0 +1,53 @@
+@using Isas.Controllers
+
+@model Isas.Models.Container
+
+@{
+    ViewData["Title"] = "Container Details";
+}
+
+<h2>Container Details</h2>
+
+<div>
+    <h4>Container</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactPerson)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ContactPerson)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Business)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Business)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+        <dt></dt>
+        <dd>
+            @await Component.InvokeAsync("Addresses", new { id = Model.ID, containername = "Containers" })
+        </dd>
+        <dt></dt>
+        <dd>
+            @await Component.InvokeAsync("Products", new { containerId = Model.ID})
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-default">Edit</a> |
+    <a asp-action="Index" class="btn btn-info">Return</a>
+</div>

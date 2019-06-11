@@ -1,0 +1,45 @@
+﻿@model Isas.Models.InsurerViewModels.SelectedTableViewModel
+
+@{
+    ViewBag.Title = "Add Table";
+}
+
+<h2>Add table</h2>
+
+<form asp-action="SelectTable" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Table</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="LoadFormatID" />
+        <input type="hidden" asp-for="UploadFileType" />
+        <div class="form-group">
+            <label asp-for="TableName" class="col-md-2 control-label">Table</label>
+            <div class="col-md-10">
+                <select asp-for="TableName" class="form-control" asp-items="@Model.TableList"></select>
+            </div>
+        </div>
+        @if (@Model.TableList.Count() > 0)
+        {
+            <div class="form-group">
+                <div class="col-md-ofset2 col-md-10">
+                    <input type="submit" value="Confirm" class="btn btn-default" /> |
+                    <a asp-action="Index" asp-route-productId="@Model.ProductID" class="btn btn-info">Return</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p>
+                This Format does not have any tables assigned to it. <br />
+                <a asp-action="Index" asp-route-productId="@Model.ProductID" class="btn btn-info">Return</a>
+            </p>
+            @*<a asp-controller="Products"
+               asp-action="ProductRisks"
+               asp-route-productId="@productId">
+                Click here go to Product and add associated Risks.
+            </a>*@
+        }
+    </div>
+</form>

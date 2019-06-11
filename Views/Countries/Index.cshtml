@@ -1,0 +1,87 @@
+@model PaginatedList<Isas.Models.Country>
+
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h2>Countries</h2>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-warning" /> |
+            <a asp-action="Index" class="btn btn-bracketed">Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Countries</caption>
+    <thead>
+        <tr>
+            <th>
+                Country
+            </th>
+            <th>
+                ISO Code
+            </th>
+            <th>
+                ISO Currency
+            </th>
+            <th>
+                Dialing Code
+            </th>
+            <th>
+                Tax
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISOCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISOCurrency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DialingCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tax)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-info @prevDisabled btn">
+    Previous
+</a>
+
+<a asp-action="Index"
+   asp-route-sortOrder="@ViewData["CurrentSort"]"
+   asp-route-page="@(Model.PageIndex + 1)"
+   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+   class="btn btn-info @nextDisabled btn">
+    Next
+</a>

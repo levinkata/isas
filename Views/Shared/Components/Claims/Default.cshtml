@@ -1,0 +1,100 @@
+﻿@model Isas.Models.InsurerViewModels.ClaimsViewModel
+
+@{
+    ViewData["Title"] = "Claims";
+}
+
+<h2>Claims</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Claims</caption>
+    <thead>
+        <tr>
+            <th>
+                Claim #
+            </th>
+            <th>
+                Incident Date
+            </th>
+            <th>
+                Register Date
+            </th>
+            <th>
+                Reserve Insured
+            </th>
+
+            <th>
+                Reserve ThirdParty
+            </th>
+            <th>
+                Claim Excess
+            </th>
+            <th>
+                Claim Class
+            </th>
+            <th>
+                Incident
+            </th>
+            <th>
+                Region
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Claims)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="ClaimTransactions"
+                       asp-action="Index"
+                       asp-route-productId="@Model.ProductID"
+                       asp-route-clientId="@Model.ClientID"
+                       asp-route-policyId="@Model.PolicyID"
+                       asp-route-claimNumber="@item.ClaimNumber">
+                        @Html.DisplayFor(modelItem => item.ClaimNumber)
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IncidentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegisterDate)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ReserveInsuredRevised)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ReserveThirdPartyRevised)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.ClaimExcess)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClaimClass.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Incident.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ClaimNumber">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ClaimNumber">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Policies"
+       asp-action="PolicyRisks"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

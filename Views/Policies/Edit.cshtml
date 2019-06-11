@@ -1,0 +1,140 @@
+@model Isas.Models.InsurerViewModels.PolicyViewModel
+
+@{
+    ViewData["Title"] = "Edit Policy";
+}
+
+<h2>Edit Policy</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Policy</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Policy.ID" />
+        @*<input type="hidden" asp-for="Policy.ProductID" />*@
+        @*<input type="hidden" asp-for="Policy.PolicyNumber" />*@
+        <input type="hidden" asp-for="Policy.ClientID" />
+        @*<input type="hidden" asp-for="Policy.PolicyVersion" />*@
+        <div class="form-group">
+            <label asp-for="Policy.PolicyNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.PolicyNumber" readonly="readonly" class="form-control" />
+                <span asp-validation-for="Policy.PolicyNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.InsurerNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.InsurerNumber" class="form-control" />
+                <span asp-validation-for="Policy.InsurerNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.InsurerID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="Policy.InsurerID" class="form-control" asp-items="@Model.InsurerList"></select>
+                <span asp-validation-for="Policy.InsurerID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.PolicyFrequencyID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="Policy.PolicyFrequencyID" class="form-control" asp-items="@Model.PolicyFrequencyList"></select>
+                <span asp-validation-for="Policy.PolicyFrequencyID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.EffectiveDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.EffectiveDate" class="form-control" />
+                <span asp-validation-for="Policy.EffectiveDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.ExpireDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.ExpireDate" class="form-control" />
+                <span asp-validation-for="Policy.ExpireDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.PolicyStatusID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="Policy.PolicyStatusID" class="form-control" asp-items="@Model.PolicyStatusList"></select>
+                <span asp-validation-for="Policy.PolicyStatusID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.PremiumDueDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.PremiumDueDate" class="form-control" />
+                <span asp-validation-for="Policy.PremiumDueDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.PolicyVersion" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.PolicyVersion" readonly="readonly" class="form-control" />
+                <span asp-validation-for="Policy.PolicyVersion" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.InceptionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.InceptionDate" class="form-control" />
+                <span asp-validation-for="Policy.InceptionDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Policy.Renewable" />
+                    <label asp-for="Policy.Renewable"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.IncomeClassID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Policy.IncomeClassID" class="form-control" asp-items="@Model.IncomeClassList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Policy.Comment" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Policy.Comment" class="form-control" />
+                <span asp-validation-for="Policy.Comment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index"
+                   @*asp-route-productid="@Model.Policy.ProductID"*@
+                   asp-route-clientid="@Model.Policy.ClientID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+
+            $("#Policy_CoverStartDate").focus(function () {
+                $('#dateErr1').empty();   // clear
+                $('#dateErr2').empty();   // clear
+            });
+
+            $("#Policy_CoverEndDate").focus(function () {
+                $('#dateErr1').empty();   // clear
+                $('#dateErr2').empty();   // clear
+            });
+
+    </script>
+}

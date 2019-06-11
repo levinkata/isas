@@ -1,0 +1,83 @@
+@model Isas.Models.InsurerViewModels.AllRiskViewModel
+
+@{
+    ViewData["Title"] = "New All Risk";
+}
+
+<h2>New All Risk</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>All Risk</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="PolicyID" />
+        <div class="form-group">
+            <label asp-for="AllRisk.ComponentID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="AllRisk.ComponentID" class="form-control" asp-items="Model.ComponentList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.Description" class="form-control" />
+                <span asp-validation-for="AllRisk.Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.Value" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.Value" class="form-control" />
+                <span asp-validation-for="AllRisk.Value" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.Premium" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.Premium" class="form-control" />
+                <span asp-validation-for="AllRisk.Premium" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.StartDate" type="date" class="form-control" />
+                <span asp-validation-for="AllRisk.StartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.EndDate" type="date" class="form-control" />
+                <span asp-validation-for="AllRisk.EndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="AllRisk.Comment" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="AllRisk.Comment" class="form-control" />
+                <span asp-validation-for="AllRisk.Comment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-controller="Policies"
+                   asp-action="PolicyRisks"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

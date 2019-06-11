@@ -1,0 +1,76 @@
+﻿@model Isas.Models.InsurerViewModels.PremiumTempsViewModel
+
+@{
+    ViewData["Title"] = "Load Premiums";
+    string premiumtype = Model.PremiumTemps.FirstOrDefault().PremiumType.Name;
+}
+
+<h2>Load Premiums</h2>
+
+<form asp-action="LoadPremiums">
+    <h4>Bulk Load</h4>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductID" />
+    <input type="hidden" asp-for="UserID" />
+    <input type="hidden" asp-for="Reference" />
+    <input type="hidden" asp-for="ReceivableDate" />
+    <input type="hidden" asp-for="PaymentTypeID" />
+    <input type="hidden" asp-for="PaymentAmount" />
+    <input type="hidden" asp-for="BatchNumber" />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Click button to load to database" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+<div class="panel-title panel-group">
+    <p>
+        Receipt Amount: String.Format("{0:#,##0.00}", @Model.PaymentAmount)
+    </p>
+    <p>
+        Premium Total: @String.Format("{0:#,##0.00}", @Model.PremiumTotal)
+    </p>
+    <p>
+        Premium Type: @premiumtype
+    </p>
+</div>
+
+<hr /><br />
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID Number
+            </th>
+            <th>
+                Premium Date
+            </th>
+            <th>
+                Premium
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PremiumTemps)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IDNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PremiumDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    Total: @Model.PremiumTemps.Count()
+</div>

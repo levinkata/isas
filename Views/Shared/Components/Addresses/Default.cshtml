@@ -1,0 +1,47 @@
+@model Isas.Models.InsurerViewModels.AddressesViewModel
+
+@{
+    ViewData["Title"] = "Address";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Addresses</caption>
+    <thead>
+        <tr>
+            <th>
+                Physical Address
+            </th>
+            <th>
+                Postal Address
+            </th>
+            <th>
+                City
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Addresses) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhysicalAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostalAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Addresses"
+       asp-action="Create"
+       asp-route-itemId="@Model.ItemID"
+       asp-route-controllername="@Model.ContainerName"
+       class="btn btn-success">
+        + Add Address
+    </a>
+</div>

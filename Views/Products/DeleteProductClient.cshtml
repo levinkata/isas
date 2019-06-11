@@ -1,0 +1,51 @@
+﻿@model Isas.Models.ProductClient
+
+@{
+    ViewData["Title"] = "Remove Client from Product";
+}
+
+<h2>Remove Client from Product</h2>
+
+<h3>Are you sure you want to proceed this?</h3>
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Client.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Client.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.IDNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Client.IDNumber)
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteProductClient">
+        <div class="form-horizontal">
+            <hr />
+            <input type="hidden" asp-for="ProductID" />
+            <input type="hidden" asp-for="ClientID" />
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a asp-action="ProductClients"
+                       asp-route-productId="@Model.ProductID"
+                       class="btn btn-info">
+                        Return
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

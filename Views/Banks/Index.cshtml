@@ -1,0 +1,68 @@
+@model Isas.Models.InsurerViewModels.BanksViewModel
+
+@{
+    ViewData["Title"] = "Banks";
+}
+
+<h2>Banks</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Banks</caption>
+    <thead>
+        <tr>
+            <th>
+                Bank
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Banks) {
+        <tr>
+            <td>
+                <a asp-controller="BankBranches"
+                   asp-action="Index"
+                   asp-route-bankId="@item.ID">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </a>
+            </td>
+            @if (item.Payable == false)
+            {
+                <td>
+                    <a asp-controller="Payees"
+                       asp-action="Create"
+                       asp-route-payeeClassId="@item.PayeeClassID"
+                       asp-route-payeeItemId="@item.ID"
+                       asp-route-payeeName="@item.Name">
+                       Make Payee
+                    </a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <label>Payee</label> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       asp-route-payeeclassId="@Model.PayeeClassID"
+       class="btn btn-success">
+        + Add Bank
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

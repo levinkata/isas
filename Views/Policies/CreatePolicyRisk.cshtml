@@ -1,0 +1,470 @@
+﻿@*@model Isas.Models.InsurerViewModels.PolicyRiskViewModel
+
+@{ 
+    ViewData["Title"] = "Add Risk";
+}
+
+<h2>Add Risk</h2>
+
+<form asp-action="CreatePolicyRisk">
+    <div class="form-horizontal">
+    <h4>Risk</h4>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="AllRisk.PolicyID" />
+        <input type="hidden" asp-for="Commercial.PolicyID" />
+        <input type="hidden" asp-for="Content.PolicyID" />
+        <input type="hidden" asp-for="Loan.PolicyID" />
+        <input type="hidden" asp-for="Motor.PolicyID" />
+        <input type="hidden" asp-for="Property.PolicyID" />
+        <input type="hidden" asp-for="RiskID" />
+    @{
+        int riskid = Model.RiskID;
+    }
+
+
+    @switch (riskid)
+    {
+        case 1:
+            <div class="form-group">
+                <label asp-for="AllRisk.ComponentID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="AllRisk.ComponentID" class="form-control" asp-items="@Model.ComponentList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.Description" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.Description" class="form-control" />
+                    <span asp-validation-for="AllRisk.Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.Value" class="form-control" />
+                    <span asp-validation-for="AllRisk.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.Premium" class="form-control" />
+                    <span asp-validation-for="AllRisk.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.StartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.StartDate" class="form-control" />
+                    <span asp-validation-for="AllRisk.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.EndDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.EndDate" class="form-control" />
+                    <span asp-validation-for="AllRisk.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllRisk.Comment" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="AllRisk.Comment" class="form-control" />
+                    <span asp-validation-for="AllRisk.Comment" class="text-danger"></span>
+                </div>
+            </div>
+            break;
+        case 2:
+            <div class="form-group">
+                <label asp-for="Commercial.ComponentID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Commercial.ComponentID" class="form-control" asp-items="@Model.ComponentList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.Description" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.Description" class="form-control" />
+                    <span asp-validation-for="Commercial.Description" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Commercial.IsMotor" />
+                        <label asp-for="Commercial.IsMotor"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.Rate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.Rate" class="form-control" />
+                    <span asp-validation-for="Commercial.Rate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.Value" class="form-control" />
+                    <span asp-validation-for="Commercial.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.Premium" class="form-control" />
+                    <span asp-validation-for="Commercial.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.StartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.StartDate" class="form-control" />
+                    <span asp-validation-for="Commercial.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Commercial.EndDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Commercial.EndDate" class="form-control" />
+                    <span asp-validation-for="Commercial.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            break;
+        case 3:
+            <div class="form-group">
+                <label asp-for="Content.Location" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Content.Location" class="form-control" />
+                    <span asp-validation-for="Content.Location" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Content.Value" class="form-control" />
+                    <span asp-validation-for="Content.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Content.Premium" class="form-control" />
+                    <span asp-validation-for="Content.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.StartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Content.StartDate" class="form-control" />
+                    <span asp-validation-for="Content.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.EndDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Content.EndDate" class="form-control" />
+                    <span asp-validation-for="Content.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.WallTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Content.WallTypeID" class="form-control" asp-items="@Model.WallTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.RoofTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Content.RoofTypeID" class="form-control" asp-items="@Model.RoofTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content.ResidenceTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Content.ResidenceTypeID" class="form-control" asp-items="@Model.ResidenceTypeList"></select>
+                </div>
+            </div>
+            break;
+        case 4:
+            <div class="form-group">
+                <label asp-for="Loan.ComponentID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Loan.ComponentID" class="form-control" asp-items="@Model.ComponentList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.AccountNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.AccountNumber" class="form-control" />
+                    <span asp-validation-for="Loan.AccountNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.Term" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.Term" class="form-control" />
+                    <span asp-validation-for="Loan.Term" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.Rate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.Rate" class="form-control" />
+                    <span asp-validation-for="Loan.Rate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.LoanDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.LoanDate" class="form-control" />
+                    <span asp-validation-for="Loan.LoanDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.Value" class="form-control" />
+                    <span asp-validation-for="Loan.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.Premium" class="form-control" />
+                    <span asp-validation-for="Loan.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Loan.SettlementDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Loan.SettlementDate" class="form-control" />
+                    <span asp-validation-for="Loan.SettlementDate" class="text-danger"></span>
+                </div>
+            </div>
+            break;
+        case 5:
+            <div class="form-group">
+                <label asp-for="Motor.RegistrationNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.RegistrationNumber" class="form-control" />
+                    <span asp-validation-for="Motor.RegistrationNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.MotorTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Motor.MotorTypeID" class="form-control" asp-items="@Model.MotorTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.MotorMakeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Motor.MotorMakeID" class="form-control" asp-items="@Model.MotorMakeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.MotorModelID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Motor.MotorModelID" class="form-control" asp-items="@Model.MotorModelList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.ManufacturerYear" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.ManufacturerYear" class="form-control" />
+                    <span asp-validation-for="Motor.ManufacturerYear" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.EngineNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.EngineNumber" class="form-control" />
+                    <span asp-validation-for="Motor.EngineNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.ChassisNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.ChassisNumber" class="form-control" />
+                    <span asp-validation-for="Motor.ChassisNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.Value" class="form-control" />
+                    <span asp-validation-for="Motor.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.Premium" class="form-control" />
+                    <span asp-validation-for="Motor.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.StartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.StartDate" class="form-control" />
+                    <span asp-validation-for="Motor.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.EndDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.EndDate" class="form-control" />
+                    <span asp-validation-for="Motor.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.CoverTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Motor.CoverTypeID" class="form-control" asp-items="@Model.CoverTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.DriverTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Motor.DriverTypeID" class="form-control" asp-items="@Model.DriverTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Motor.IsPrivateUse" />
+                        <label asp-for="Motor.IsPrivateUse"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Motor.IsBusinessUse" />
+                        <label asp-for="Motor.IsBusinessUse"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.CFG" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.CFG" class="form-control" />
+                    <span asp-validation-for="Motor.CFG" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Motor.HasImmobiliser" />
+                        <label asp-for="Motor.HasImmobiliser"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Motor.HasAlarm" />
+                        <label asp-for="Motor.HasAlarm"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="checkbox">
+                        <input asp-for="Motor.IsGreyImport" />
+                        <label asp-for="Motor.IsGreyImport"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motor.TerritorialLimit" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Motor.TerritorialLimit" class="form-control" />
+                    <span asp-validation-for="Motor.TerritorialLimit" class="text-danger"></span>
+                </div>
+            </div>
+            break;
+        case 6:
+            <div class="form-group">
+                <label asp-for="Property.Location" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.Location" class="form-control" />
+                    <span asp-validation-for="Property.Location" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Value" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.Value" class="form-control" />
+                    <span asp-validation-for="Property.Value" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.Premium" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.Premium" class="form-control" />
+                    <span asp-validation-for="Property.Premium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.StartDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.StartDate" class="form-control" />
+                    <span asp-validation-for="Property.StartDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.EndDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.EndDate" class="form-control" />
+                    <span asp-validation-for="Property.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.CoverTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Property.CoverTypeID" class="form-control" asp-items="@Model.CoverTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.WallTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Property.WallTypeID" class="form-control" asp-items="@Model.WallTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.RoofTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Property.RoofTypeID" class="form-control" asp-items="@Model.RoofTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.ResidenceTypeID" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="Property.ResidenceTypeID" class="form-control" asp-items="@Model.ResidenceTypeList"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Property.BondHolder" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Property.BondHolder" class="form-control" />
+                    <span asp-validation-for="Property.BondHolder" class="text-danger"></span>
+                </div>
+            </div>
+            break;
+        default:
+            break;
+    }
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>*@

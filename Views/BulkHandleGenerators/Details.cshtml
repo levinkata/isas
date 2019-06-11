@@ -1,0 +1,57 @@
+@model Isas.Models.BulkHandleGenerator
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>BulkHandleGenerator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AddedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AddedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BulkDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BulkDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RecordCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TableName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TableName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.BulkNumber">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

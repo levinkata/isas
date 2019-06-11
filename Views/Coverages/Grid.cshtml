@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Cover Types";
+}
+
+<h2>Cover Types</h2>
+
+<span style="color:royalblue">Grid / Default</span> 
+<ej-grid id="FlatGrid" allow-sorting="true" allow-paging="true">
+    <e-datamanager json="(IEnumerable<object>)ViewBag.data"
+                   update-url="/Coverages/CellEditUpdate"
+                   insert-url="/Coverages/CellEditInsert"
+                   remove-url="/Coverages/CellEditDelete"
+                   adaptor="remoteSaveAdaptor" /> 
+    <e-edit-settings allow-adding="true" allow-editing="true" />
+    <e-columns>
+        <e-column field="ID" is-primary-key="true" visible="false" ></e-column>
+        <e-column field="Name" header-text="Name" ></e-column>
+    </e-columns>
+</ej-grid>

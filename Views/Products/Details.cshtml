@@ -1,0 +1,33 @@
+@using Isas.Controllers
+
+@model Isas.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2>Product Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RenewalPeriod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RenewalPeriod)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-default">Edit</a> |
+    <a asp-action="Index" asp-route-containerId="@Model.ContainerID" class="btn btn-info">Return</a>
+</div>

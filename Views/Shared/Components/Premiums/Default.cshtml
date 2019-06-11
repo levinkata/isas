@@ -1,0 +1,68 @@
+﻿@model Isas.Models.InsurerViewModels.PremiumsViewModel
+
+@{
+    ViewData["Title"] = "Premiums";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Premiums</caption>
+    <thead>
+        <tr>
+            <th>
+                Date
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Reference
+            </th>
+            <th>
+                Payment Type
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Premiums)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PremiumDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PremiumType.Name)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receivable.Reference)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Receivable.PaymentType.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       asp-route-policyId="@Model.PolicyID"
+       class="btn btn-success">
+        + Add Premium
+    </a> |
+    <a asp-controller="Policies"
+       asp-action="Index"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

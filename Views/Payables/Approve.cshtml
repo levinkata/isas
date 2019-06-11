@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@model Isas.Models.InsurerViewModels.PayableViewModel
+
+@{
+    ViewData["Title"] = "Approve";
+}
+
+<h2>Approve For Payment</h2>
+<hr />
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@Model.ProductName - Approve For Payment</caption>
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Payee
+            </th>
+            <th>
+                Invoice Number
+            </th>
+            <th>
+                Invoice Date
+            </th>
+            <th>
+                Requisition Date
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Affected
+            </th>
+            <th>
+                Authorised
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ClaimTransactions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Payee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InvoiceDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequisitionDate)
+                </td>
+                <td align="right">
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Affected.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Authorised)
+                </td>
+                <td>
+                    <a asp-action="PassForPayment"
+                       asp-route-Id="@item.ID"
+                       asp-route-productId="@Model.ProductID">
+                        Approve
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-id="@Model.ProductID"
+       class="btn btn-info">
+        Return
+    </a>
+</div>

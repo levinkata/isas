@@ -1,0 +1,123 @@
+@using Microsoft.AspNetCore.Http;
+
+@model IEnumerable<Isas.Models.Motor>
+
+@{
+    ViewData["Title"] = "Motors";
+    Guid policyId = Guid.Parse(Context.Session.GetString("PolicyID"));
+}
+
+<h2>Motors</h2>
+
+<p>
+    <a asp-action="Create">Add Motor</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RegistrationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotorMake.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManufacturerYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EngineNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChassisNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Premium)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrivateUse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessUse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CFG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Immobiliser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alarm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GreyImport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotorMake.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManufacturerYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EngineNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChassisNumber)
+            </td>
+            <td align="right">
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td align="right">
+                @Html.DisplayFor(modelItem => item.Premium)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrivateUse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessUse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CFG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Immobiliser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alarm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GreyImport)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

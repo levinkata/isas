@@ -1,0 +1,40 @@
+@model Isas.Models.InsurerViewModels.ProductsViewModel
+
+@{
+    ViewData["Title"] = "Product";
+}
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Products</caption>
+    <thead>
+        <tr>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Renewal
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Products) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RenewalPeriod)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="Create"
+       asp-route-containerId="@Model.ContainerID"
+       class="btn btn-success">
+        + Add Product
+    </a>
+</div>

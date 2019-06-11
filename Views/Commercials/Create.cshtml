@@ -1,0 +1,91 @@
+@model Isas.Models.InsurerViewModels.CommercialViewModel
+
+@{
+    ViewData["Title"] = "New Commercial";
+}
+
+<h2>New Commercial</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Commercial</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="PolicyID">
+        <div class="form-group">
+            <label asp-for="Commercial.ComponentID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Commercial.ComponentID" class ="form-control" asp-items="@Model.ComponentList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.Description" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.Description" class="form-control" />
+                <span asp-validation-for="Commercial.Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Commercial.Motor" />
+                    <label asp-for="Commercial.Motor"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.Rate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.Rate" class="form-control" />
+                <span asp-validation-for="Commercial.Rate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.Value" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.Value" class="form-control" />
+                <span asp-validation-for="Commercial.Value" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.Premium" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.Premium" class="form-control" />
+                <span asp-validation-for="Commercial.Premium" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.StartDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.StartDate" class="form-control" />
+                <span asp-validation-for="Commercial.StartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Commercial.EndDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Commercial.EndDate" class="form-control" />
+                <span asp-validation-for="Commercial.EndDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-controller="Policies"
+                   asp-action="PolicyRisks"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

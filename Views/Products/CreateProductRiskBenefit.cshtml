@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@model Isas.Models.InsurerViewModels.ProductRiskBenefitViewModel
+
+@{
+    ViewData["Title"] = "Add Risk Benefit";
+}
+
+<h2>Add Risk Benefit</h2>
+
+<form asp-action="CreateProductRiskBenefit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Risk</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ProductRiskBenefit.ProductRiskID" />
+        <div class="form-group">
+            <label asp-for="ProductRiskBenefit.Benefit" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRiskBenefit.Benefit" class="form-control" />
+                <span asp-validation-for="ProductRiskBenefit.Benefit" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-action="ProductRiskBenefits"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-productriskId="@Model.ProductRiskBenefit.ProductRiskID"
+                   class="btn btn-default">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

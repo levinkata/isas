@@ -1,0 +1,37 @@
+﻿@model IEnumerable<string>
+
+@{
+    Layout = null;
+}
+
+<a asp-controller="Risks" asp-action="Index" class="btn btn-block btn-default btn-lg">Risks</a>
+
+@*@foreach (var item in Model)
+{
+    <a asp-controller="Risks" asp-action="Index" class="btn btn-block btn-default btn-lg">@item</a>
+}*@
+
+@{
+    int ro = 1;
+    int rows = Model.Count();
+}
+
+<ul class="list">
+
+    @foreach (var link in Model)
+    {
+        if (ro == 1)
+        {
+            <li class="first">@Html.RouteLink(link, new { controller = "Risk", action = "List", riskname = link })</li>
+        }
+        else if (ro == rows)
+        {
+            <li class="last">@Html.RouteLink(link, new { controller = "Risk", action = "List", riskname = link })</li>
+        }
+        else
+        {
+            <li>@Html.RouteLink(link, new { controller = "Risk", action = "List", riskname = link })</li>
+        }
+        ro++;
+    }
+</ul>

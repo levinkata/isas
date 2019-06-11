@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+}
+
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>
+
+<div class="frame">
+    <span class="sampleName">TreeView / Default </span>
+    <div style="width: 250px">
+        TreeView: <br />
+        <ej-tree-view id="tree">
+            <e-tree-view-items>
+                <e-tree-view-item text="Sales">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Estimates"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Invoices"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Recurring Invoices"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Customer Statements"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Customers"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Products & Services"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Purchases">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Bills"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Receipts"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Vendors"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Products & Services"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Accounting">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Transactions"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Reconciliation"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Chart of Accounts"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Banking" expanded="true">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Bank Connections"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Payroll">
+                    <e-tree-view-child-items>
+                        <e-tree-view-child-item text="Run Payroll"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Employees"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Timesheets"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Taxes"></e-tree-view-child-item>
+                        <e-tree-view-child-item text="Direct Deposits"></e-tree-view-child-item>
+                    </e-tree-view-child-items>
+                </e-tree-view-item>
+                <e-tree-view-item text="Reports">
+                </e-tree-view-item>
+            </e-tree-view-items>
+        </ej-tree-view>
+    </div>
+</div>
+
+<div class="frame">
+    <div class="control">
+        DatePicker: <br />
+        <ej-date-picker id="firstDatePicker" value="@DateTime.Now" date-format="dd/MM/yyyy" button-text="Now"></ej-date-picker>
+    </div>
+</div>
+
+<div class="frame">
+    <div class="control">
+        <br />
+        Favorite Search Engines<br />
+        <br />
+        <table>
+            <tr>
+                <td class="chkrad">
+                    <ej-check-box id="Checkbox1" size="@Size.Medium" text="Google" value="Google" />
+                </td>
+                <td class="chkrad">
+                    <ej-check-box id="Checkbox5" size="@Size.Medium" text="Yahoo" value="Yahoo" />
+                </td>
+                <td class="chkrad">
+                    <ej-check-box id="Checkbox6" size="@Size.Medium" text="Bing" value="Bing" />
+                </td>
+            </tr>
+        </table>
+        <br />
+    </div>
+</div>
+
+<div class="frame">
+    <div class="control">
+        <div class="radioalign">
+            <br />
+            Category<br />
+            <br />
+            <table>
+                <tr>
+                    <td class="chkrad">
+                        <ej-radio-button id="Radio1" name="small" size="@RadioButtonSize.Small" checked="true" enabled="true" text="Fresher" value="Fresher" />
+                    </td>
+                    <td class="chkrad" colspan="2">
+                        <ej-radio-button id="Radio3" name="small" size="@RadioButtonSize.Small" checked="false" enabled="true" text="Experienced" value="Experienced" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+            Experienced<br />
+            <br />
+            <table>
+                <tr>
+                    <td class="chkrad">
+                        <ej-radio-button id="Radio2" name="medium" size="@RadioButtonSize.Medium" checked="true" enabled="true" text="1+ years" value="1+ years" />
+                    </td>
+                    <td class="chkrad">
+                        <ej-radio-button id="Radio4" name="medium" size="@RadioButtonSize.Medium" checked="false" enabled="true" text="2.5+years" value="2.5+years" />
+                    </td>
+                    <td>
+                        <ej-radio-button id="Radio5" name="medium" size="@RadioButtonSize.Medium" checked="false" enabled="true" text="5+years" value="5+years" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+    </div>
+</div>
+
+<div class="frame">
+    <span class="sampleName">Button / Split Buttons</span>
+    <div class="control">
+        <table>
+            <tr>
+                <td>
+                    Split button Medium
+                </td>
+                <td class="btnsht">
+                    <ej-split-button id="spltbutton41" text="Create New..." show-rounded-corner="true" button-mode="Dropdown" size="@ButtonSize.Medium" target-id="Ul41" />
+                    <ul id="Ul41">
+                        <li><span>Bill</span></li>
+                        <li><span>Invoice</span></li>
+                        <li><span>Report</span></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="frame">
+    <span class="sampleName">Button / Default Functionalities</span>
+    <div class="control">
+        <table>
+            <tr>
+                <td>
+                    Button Medium
+                </td>
+                <td class="btnsht">
+                    <ej-button id="button41" text="Login" show-rounded-corner="true" size="@ButtonSize.Medium" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<address>
+    Gaborone<br />
+    Botswana<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:Support@idelanconsulting.com">support@idelanconsulting.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketingidelanconsulting.com">marketing@idelanconsulting.com</a>
+</address>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script src="@Url.Content("~/Scripts/cultures/ej.culture.en-US.min.js")"></script>
+}
+

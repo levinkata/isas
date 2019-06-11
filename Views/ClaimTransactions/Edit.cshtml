@@ -1,0 +1,114 @@
+@model Isas.Models.InsurerViewModels.ClaimTransactionViewModel
+
+@{
+    ViewData["Title"] = "Edit Claim Transaction";
+}
+
+<h2>Edit Claim Transaction</h2>
+
+<form asp-action="Edit" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Claim Transaction</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ClaimTransaction.ID" />
+        <input type="hidden" asp-for="ClaimTransaction.ClaimNumber" />
+        <input type="hidden" asp-for="ClaimTransaction.TaxAmount" />
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.PayeeID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ClaimTransaction.PayeeID" class="form-control" asp-items="@Model.PayeeList"></select>
+                <span asp-validation-for="ClaimTransaction.PayeeID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.InvoiceNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.InvoiceNumber" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.InvoiceNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.InvoiceDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.InvoiceDate" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.InvoiceDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.RequisitionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.RequisitionDate" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.RequisitionDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.Amount" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.TransactionTypeID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ClaimTransaction.TransactionTypeID" class="form-control" asp-items="@Model.TransactionTypeList"></select>
+                <span asp-validation-for="ClaimTransaction.TransactionTypeID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.AffectedID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ClaimTransaction.AffectedID" class="form-control" asp-items="@Model.AffectedList"></select>
+                <span asp-validation-for="ClaimTransaction.AffectedID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.AccountID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="ClaimTransaction.AccountID" class="form-control" asp-items="@Model.AccountList"></select>
+                <span asp-validation-for="ClaimTransaction.AccountID" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="ClaimTransaction.Taxable" />
+                    <label asp-for="ClaimTransaction.Taxable"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.ReserveInsured" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.ReserveInsured" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.ReserveInsured" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ClaimTransaction.ReserveThirdParty" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ClaimTransaction.ReserveThirdParty" class="form-control" />
+                <span asp-validation-for="ClaimTransaction.ReserveThirdParty" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="ClaimTransaction.Finalise" />
+                    <label asp-for="ClaimTransaction.Finalise"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-claimId="@Model.ClaimTransaction.ClaimNumber" class="btn btn-default">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

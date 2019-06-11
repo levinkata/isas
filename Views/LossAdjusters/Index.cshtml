@@ -1,0 +1,61 @@
+@model Isas.Models.InsurerViewModels.LossAdjustersViewModel
+
+@{
+    ViewData["Title"] = "Loss Adjusters";
+}
+
+<h2>Loss Adjusters</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">Loss Adjusters</caption>
+    <thead>
+        <tr>
+            <th>
+                Loss Adjuster
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LossAdjusters)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                @if (item.Payable == false)
+                {
+                    <td>
+                        <a asp-controller="Payees"
+                           asp-action="Create"
+                           asp-route-payeeClassId="@item.PayeeClassID"
+                           asp-route-payeeItemId="@item.ID"
+                           asp-route-payeeName="@item.Name">
+                           Make Payee
+                        </a> | 
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <label>Payee</label> | 
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Create"
+       class="btn btn-success">
+       + Add Loss Adjuster
+    </a>
+</div>

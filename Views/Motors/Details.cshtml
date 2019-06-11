@@ -1,0 +1,114 @@
+@model Isas.Models.Motor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Motor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CFG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CFG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ChassisNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChassisNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EngineNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EngineNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Alarm)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Alarm)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Immobiliser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Immobiliser)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessUse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BusinessUse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GreyImport)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GreyImport)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PrivateUse)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PrivateUse)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturerYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturerYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MotorModelID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MotorModelID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Premium)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Premium)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritorialLimit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TerritorialLimit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

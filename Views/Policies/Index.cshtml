@@ -1,0 +1,188 @@
+@model Isas.Models.InsurerViewModels.PoliciesViewModel
+
+@{
+    ViewData["Title"] = "Policies";
+}
+
+<h2>Policies</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@Model.ClientName - Policies</caption>
+    <thead>
+        <tr>
+            <th>
+                Policy Number
+            </th>
+            <th>
+                Insurer Number
+            </th>
+            <th>
+                Effective Date
+            </th>
+            <th>
+                Expiry Date
+            </th>
+            <th>
+                Premium Due Date
+            </th>
+            <th>
+                Version
+            </th>
+            <th>
+                Inception Date
+            </th>
+            <th>
+                Policy Status
+            </th>
+            <th>
+                Renewable
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Policies) {
+        <tr>
+            <td>
+                <a asp-action="PolicyRisks"
+                   @*asp-route-productId="@item.ProductID"*@
+                   asp-route-clientId="@item.ClientID"
+                   asp-route-policyId="@item.ID">
+                   @Html.DisplayFor(modelItem => item.PolicyNumber)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsurerNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EffectiveDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PremiumDueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyVersion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InceptionDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PolicyStatus.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Renewable)
+            </td>
+            <td>
+                <a asp-action="Edit"
+                   asp-route-id="@item.ID">
+                    Edit
+                </a> | 
+                <a asp-action="PolicyRisks"
+                   @*asp-route-productId="@item.ProductID"*@
+                   asp-route-clientId="@item.ClientID"
+                   asp-route-policyId="@item.ID">
+                   Risks</a> | 
+                <a asp-controller="Premiums"
+                   asp-action="Index"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@item.ID">
+                   Premiums
+                </a> | 
+                <a asp-action="PolicyBankAccounts"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@item.ID">
+                   Bank
+                </a> | 
+                <a asp-controller="Claims"
+                   asp-action="Index"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@item.ID">
+                   Claims
+                </a> | 
+                <a asp-action="Details"
+                   asp-route-id="@item.ID">
+                   Details
+                </a> |
+                <a asp-action="PolicySchedule">
+                   Policy Schedule
+                </a> |
+                <a asp-action="PolicyExtract"
+                   asp-route-policyNumber="@item.PolicyNumber">
+                    Policy Extract
+                </a> |
+                <a asp-action="GenerateInvoice"
+                    asp-route-policyId="@item.ID">
+                    Generate Invoice
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<br /><br />
+<div>
+    <a asp-action="Create"
+       asp-route-productId="@Model.ProductID"
+       asp-route-clientId="@Model.ClientID"
+       class="btn btn-success">
+       + Add Policy
+    </a> |
+    <a asp-controller="Products"
+       asp-action="ProductClients"
+       asp-route-productId="@Model.ProductID"
+       class="btn btn-info">
+       Return
+    </a>
+</div>
+
+<div class="container">
+    <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#red" data-toggle="tab">Red</a></li>
+            <li><a href="#orange" data-toggle="tab">Orange</a></li>
+            <li><a href="#yellow" data-toggle="tab">Yellow</a></li>
+            <li><a href="#green" data-toggle="tab">Green</a></li>
+            <li><a href="#blue" data-toggle="tab">Blue</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="red">
+                <h1>Pizza</h1>
+                <div>
+                    Pizza cooked to perfection tossed with milk, vegetables, potatoes, poultry, 100% pure mutton, and cheese - and in creating nutritious and tasty meals to maintain good health.
+                </div>
+            </div>
+            <div class="tab-pane" id="orange">
+                <h1>Orange</h1>
+                <p>orange orange orange orange orange</p>
+            </div>
+            <div class="tab-pane" id="yellow">
+                <h1>Yellow</h1>
+                <p>yellow yellow yellow yellow yellow</p>
+            </div>
+            <div class="tab-pane" id="green">
+                <h1>Green</h1>
+                <p>green green green green green</p>
+            </div>
+            <div class="tab-pane" id="blue">
+                <h1>Blue</h1>
+                <p>blue blue blue blue blue</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $("#tabs").tab();
+        });
+    </script> 
+}

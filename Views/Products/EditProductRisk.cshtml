@@ -1,0 +1,78 @@
+﻿@model Isas.Models.InsurerViewModels.ProductRiskViewModel
+
+@{
+    ViewData["Title"] = "Edit Risk";
+}
+
+<h2>Edit Risk</h2>
+
+<form asp-action="EditProductRisk" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Risk</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="ProductRisk.ID" type="hidden" />
+        <input asp-for="ProductRisk.ProductID" type="hidden" />
+        <input asp-for="ProductRisk.RiskID" type="hidden" />
+        <div class="form-group">
+            <label asp-for="ProductRisk.Risk.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @*<input asp-for="ProductRisk.Risk.Name" readonly="readonly" class="form-control" />*@
+                <label asp-for="ProductRisk.Risk.Name" style="text-align:left" class="col-md-2 control-label">@Model.ProductRisk.Risk.Name</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductRisk.ClaimLimit" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRisk.ClaimLimit" class="form-control" />
+                <span asp-validation-for="ProductRisk.ClaimLimit" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductRisk.ClaimPrefix" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRisk.ClaimPrefix" class="form-control" />
+                <span asp-validation-for="ProductRisk.ClaimPrefix" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="ProductRisk.UseCFG" />
+                    <label asp-for="ProductRisk.UseCFG"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductRisk.PolicyFee" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRisk.PolicyFee" class="form-control" />
+                <span asp-validation-for="ProductRisk.PolicyFee" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductRisk.Commission" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRisk.Commission" class="form-control" />
+                <span asp-validation-for="ProductRisk.Commission" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductRisk.AdminFee" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductRisk.AdminFee" class="form-control" />
+                <span asp-validation-for="ProductRisk.AdminFee" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="ProductRisks" asp-route-productID="@Model.ProductRisk.ProductID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

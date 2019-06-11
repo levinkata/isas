@@ -1,0 +1,52 @@
+﻿@model Isas.Models.InsurerViewModels.PolicyExtractViewModel
+
+@{
+    ViewData["Title"] = "Policy Extract";
+}
+
+<h2>PolicyExtract</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body>
+    <div class="jumbotron">@Model.Insurer.Name</div>
+    <div class="panel-group">
+        @Model.Policy.PolicyNumber
+        <div class="col-md-2">
+            @Model.Client.LastName
+        </div>
+        <div class="col-md-2">
+            @Model.Client.FirstName
+        </div>
+        
+    </div>
+    <address>
+        Gaborone
+    </address>
+    <div class="form-group">
+        Motor
+        @foreach(var item in Model.Motors)
+        {
+            <div class="col-md-2">
+                Registration Number:    @item.RegistrationNumber
+            </div>
+            
+            <div class="col-md-2">
+                @item.Value
+            </div>
+            <div class="col-md-2">
+                @item.Premium
+            </div>
+
+        }
+    </div>
+    <footer>
+        Page #
+    </footer>
+</body>
+</html>

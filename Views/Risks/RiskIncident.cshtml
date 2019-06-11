@@ -1,0 +1,231 @@
+﻿@model Isas.Models.InsurerViewModels.RiskIncidentViewModel
+
+@{ 
+    ViewBag.Title = "New Risk Incident";
+}
+
+<h2>New Risk Incident</h2>
+
+<h4>Risk Incident</h4>
+<hr />
+<div class="form-group">
+    <label asp-for="RiskID" class="col-md-2 control-label">Risk</label>
+    <div class="col-md-10">
+        <select asp-for="RiskID" class="form-control" asp-items="@Model.Risks" ></select>
+    </div>
+</div>
+@*<div class="form-group">
+    <label asp-for="RiskID" class="col-md-2 control-label">Risk</label>
+    <div id="risklist2" class="col-md-10">
+        <ej-drop-down-list id="RiskList"
+                           datasource="(IEnumerable<object>)ViewBag.datasource0"
+                           watermark-text="Select a risk" selected-index="0" select="onchange">
+            <e-drop-down-list-fields id="ID" text="Name" value="ID" />
+        </ej-drop-down-list>
+    </div>
+</div>*@
+
+<br /><br />
+<table class="table">
+    <tr>
+        @*<td>
+            <ej-list-box id="incidents" allow-multi-selection="true" datasource="@ViewBag.datasource">
+                <e-list-box-fields id="ID" text="Name" value="ID" />
+            </ej-list-box>
+        </td>
+        <td>
+            <ej-list-box id="riskincidents" allow-multi-selection="true" datasource="@ViewBag.data">
+                <e-list-box-fields id="ID" text="Name" value="ID" />
+            </ej-list-box>
+        </td>*@
+        <td align="center">
+                    Available Incidents
+                    <select asp-for="Available" class="form-control" style="height: 250px; width: 200px; overflow: auto;"
+                            asp-items="@Model.IncidentList"></select>
+        </td>
+        <td align="center">
+                    <br /><br /><br /><br />
+                    <input type="button" value=">" id="right" class="btn btn-default" style="width: 50px;" /><br />
+                    <input type="button" value="<" id="left" class="btn btn-default" style="width: 50px;" /><br />
+                    <input type="button" value=">>" id="rightAll" class="btn btn-default" style="width: 50px;" /><br />
+                    <input type="button" value="<<" id="leftAll" class="btn btn-default" style="width: 50px;" /><br />
+        </td>
+        <td align="center">
+                    Assigned Incidents
+                    <select asp-for="Assigned" class="form-control" style="height: 250px; width: 200px; overflow: auto;"
+                            asp-items="@Model.RiskIncidentList"></select>
+        </td>
+    </tr>
+
+</table>
+
+<div>
+    <a asp-action="Index" class="btn btn-info">Return</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @*<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>*@
+    <script type="text/javascript">
+
+        //function onchange(args) {
+        //    var currentRiskId = args.value
+
+        //    var dataManager = ej.DataManager({
+        //        //OData service
+        //        url: "/Risks/FillListBoxes?$riskid='" + currentRiskId + "'"
+        //    });
+
+        //    // create query
+        //    var query = ej.Query().from("incidents");
+        //    $('#incidents').ejListBox({
+        //        dataSource: dataManager,
+        //        fields: { value: "id", text: "name" },
+        //        query: query
+        //    });
+        //};
+
+        $(document).ready(function () {
+
+            $('#RiskID').on('change', function () {
+                var selectedRiskId = $("#RiskID").val();
+
+                $.ajax({
+                    url: '@(Url.Action("FillListBoxes"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskid: selectedRiskId },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.riskincidents, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.incidents, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            });
+
+            $('#right').on('click', function () {
+                var itemsSelected = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Available option:selected').each(function () {
+                    itemsSelected.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("AddRiskIncidents"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, incidents: itemsSelected },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskincidents, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedincidents, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#rightAll').on('click', function () {
+                var itemsAll = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Available option').each(function () {
+                    itemsAll.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("AddRiskIncidents"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, incidents: itemsAll },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskincidents, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedincidents, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#left').on('click', function () {
+                var itemsSelected = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Assigned option:selected').each(function () {
+                    itemsSelected.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("RemoveRiskIncidents"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, incidents: itemsSelected },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskincidents, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedincidents, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            })
+
+            $('#leftAll').on('click', function () {
+                var itemsAll = [];
+                var riskSelected = $('#RiskID').val();
+
+                $('#Assigned option').each(function () {
+                    itemsAll.push($(this).val());
+                });
+
+                $.ajax({
+                    url: '@(Url.Action("RemoveRiskIncidents"))',
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: { riskId: riskSelected, incidents: itemsAll },
+                    success: function (data) {
+                        $('#Assigned').empty();   // clear before appending new list
+                        $('#Available').empty();   // clear before appending new list
+
+                        $.each(data.updatedriskincidents, function (index, value) {
+                            $('#Assigned').append($('<option></option>').val(value.value).html(value.text));
+                        });
+
+                        $.each(data.updatedincidents, function (index, value) {
+                            $('#Available').append($('<option></option>').val(value.id).html(value.name));
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+}

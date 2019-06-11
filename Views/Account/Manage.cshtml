@@ -1,0 +1,31 @@
+﻿@using Isas.Models;
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewData["Title"] = "Manage Account";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<p class="text-success">@ViewData["StatusMessage"]</p>
+<div class="row">
+    <div class="col-md-12">
+        @if (ViewBag.HasLocalPassword)
+        {
+            @await Html.PartialAsync("_ChangePasswordPartial")
+        }
+        else
+        {
+            @await Html.PartialAsync("_SetPasswordPartial")
+        }
+
+        <section id="externaLogins">
+            <a asp-action="RemoveAccountList">Remove Account List</a>
+            @await Html.PartialAsync("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

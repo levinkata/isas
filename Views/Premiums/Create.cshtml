@@ -1,0 +1,121 @@
+@model Isas.Models.InsurerViewModels.PremiumViewModel
+@{
+    ViewBag.Title = "Add Premium";
+}
+
+<h2>Add Premium</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Premium</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="PolicyID" />
+        <input type="hidden" asp-for="Premium.RiskID" />
+        <input type="hidden" asp-for="Premium.RiskItemID" />
+        <div class="form-group" id="Reference">
+            <label asp-for="Receivable.Reference" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Receivable.Reference" class="form-control" />
+                <span asp-validation-for="Receivable.Reference" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" id="ReceivableDate">
+            <label asp-for="Receivable.ReceivableDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Receivable.ReceivableDate" id="recDate" class="form-control" />
+                <span asp-validation-for="Receivable.ReceivableDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" id="PaymentTypeID">
+            <label asp-for="Receivable.PaymentTypeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Receivable.PaymentTypeID"  class="form-control" asp-items="@Model.PaymentTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group" id="ReceivableAmount">
+            <label asp-for="Receivable.Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Receivable.Amount" id="recAmt" class="form-control" />
+                <span asp-validation-for="Receivable.Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" hidden="hidden" id="PremiumDate">
+            <label asp-for="Premium.PremiumDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Premium.PremiumDate" id="premDate" class="form-control" />
+                <span asp-validation-for="Premium.PremiumDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" hidden="hidden" id="PremiumTypeID">
+            <label asp-for="Premium.PremiumTypeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Premium.PremiumTypeID" class="form-control" asp-items="@Model.PremiumTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group" hidden="hidden" id="PremiumAmount">
+            <label asp-for="Premium.Amount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Premium.Amount" id="premAmt" class="form-control" />
+                <span asp-validation-for="Premium.Amount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group" id="divConfirm">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Confirm" id="Confirm" class="btn btn-default" /> |
+                <a asp-action="Index"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+        <div class="form-group" hidden="hidden" id="Save">
+            <div class="col-md-ofset2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" /> |
+                <a asp-action="Index"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @*<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.js"></script>*@
+    <script type="text/javascript">
+
+        $("#Confirm").click(function () {
+            $("#Reference").toggle();
+            $("#ReceivableDate").toggle();
+            $("#PaymentTypeID").toggle();
+            $("#ReceivableAmount").toggle();
+            $("#PremiumDate").toggle();
+            $("#PremiumTypeID").toggle();
+            $("#PremiumAmount").toggle();
+            $("#divConfirm").toggle();
+            $("#Save").toggle();
+            $("#PremiumDate").append($("#ReceivableDate").val());
+            $("#PremiumAmount").append($("#ReceivableAmount").val());
+        });
+        
+        $("#recDate").change(function () {
+            var receiveDate = $("#recDate").val();
+            $("#premDate").val(receiveDate);
+        });
+        
+        $("#recAmt").change(function () {
+            var receiveAmt = $("#recAmt").val();
+            $("#premAmt").val(receiveAmt);
+        });
+    </script>
+}

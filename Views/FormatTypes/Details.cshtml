@@ -1,0 +1,63 @@
+@model Isas.Models.FormatType
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>FormatType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ColumnLength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ColumnLength)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Delimiter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Delimiter)
+        </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.FieldName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FieldName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsKey)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsKey)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TableName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TableName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

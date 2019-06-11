@@ -1,0 +1,33 @@
+@model Isas.Models.InsurerViewModels.LossAdjusterViewModel
+
+@{
+    ViewData["Title"] = "New Loss Adjusters";
+}
+
+<h2>New Loss Adjusters</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Loss Adjuster</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="LossAdjuster.PayeeClassID" />
+        <div class="form-group">
+            <label asp-for="LossAdjuster.Name" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LossAdjuster.Name" class="form-control" />
+                <span asp-validation-for="LossAdjuster.Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-action="Index" asp-route-payeeClassId="@Model.LossAdjuster.PayeeClassID" class="btn btn-info">Return</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

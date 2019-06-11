@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model Isas.Models.InsurerViewModels.UpLoadPolicyViewModel
+
+@{
+    ViewData["Title"] = "Upload Policy File";
+    Guid productId = Guid.Parse(Context.Session.GetString("ProductID"));
+}
+
+<h2>Upload Policy File</h2>
+
+<form asp-action="BulkPolicy" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Policy File</h4>
+        <hr />
+        <input type="hidden" asp-for="LoadFormatID" />
+        <input type="hidden" asp-for="UploadFileType" />
+        <input type="hidden" asp-for="Delimiter" />
+        <input type="hidden" asp-for="TableName" />
+        <input type="hidden" asp-for="PolicyVersion" value="1" />
+        <input type="hidden" asp-for="StatusDate" value="@DateTime.Today" />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Enter Data Row #:</label>
+            <div class="col-md-10">
+                <input asp-for="StartRow" class="form-control" />
+                <span asp-validation-for="StartRow" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Select file to load:</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="UpLoadFile" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InsurerID" class="col-md-2 control-label">Insurer</label>
+            <div class="col-md-10">
+                <select asp-for="InsurerID" class="form-control" asp-items="@Model.InsurerList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PolicyFrequencyID" class="col-md-2 control-label">Frequency</label>
+            <div class="col-md-10">
+                <select asp-for="PolicyFrequencyID" class="form-control" asp-items="@Model.PolicyFrequencyList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PolicyStatusID" class="col-md-2 control-label">Status</label>
+            <div class="col-md-10">
+                <select asp-for="PolicyStatusID" class="form-control" asp-items="@Model.PolicyStatusList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PremiumDueDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PremiumDueDate" class="form-control" />
+                <span asp-validation-for="PremiumDueDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InceptionDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="InceptionDate" class="form-control" />
+                <span asp-validation-for="InceptionDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Renewable" />
+                    <label asp-for="Renewable"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Selected Files" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="SelectLoadFormat"
+       asp-route-productId="@productId"
+       class="btn btn-default">
+       Return
+    </a>
+</div>

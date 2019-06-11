@@ -1,0 +1,45 @@
+﻿@model Isas.Models.InsurerViewModels.SelectedPayee
+@{
+    ViewBag.Title = "Add Payee";
+}
+
+<h2>Add Payee</h2>
+
+<form asp-action="SelectPayee">
+    <div class="form-horizontal">
+        <h4>Payee</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ClaimNumber" />
+        <div class="form-group">
+            <label asp-for="Payee.PayeeClassID" class="col-md-2 control-label">Payee Class</label>
+            <div class="col-md-10">
+                <select asp-for="Payee.PayeeClassID" class="form-control" asp-items="@Model.PayeeClassList"></select>
+            </div>
+        </div>
+        @if (@Model.PayeeClassList.Count() > 0)
+        {
+            <div class="form-group">
+                <div class="col-md-ofset2 col-md-10">
+                    <input type="submit" value="Confirm" class="btn btn-default" />
+                </div>
+            </div>
+        }
+        else
+        {
+            <p>
+                There are no defined Payee Classes.
+            </p>
+            <a asp-controller="PayeeClasses"
+               asp-action="Create">
+                Click here go to add Payee Classes.
+            </a>
+        }
+    </div>
+</form>
+
+<div>
+    <a asp-controller="PayeeClasses"
+       asp-action="Index"
+       class="btn btn-default">Return</a>
+</div>

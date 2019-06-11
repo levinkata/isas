@@ -1,0 +1,137 @@
+@model Isas.Models.InsurerViewModels.ClaimViewModel
+
+@{
+    ViewData["Title"] = "New Claim";
+}
+
+<h2>New Claim</h2>
+
+<form asp-action="Create" asp-antiforgery="true" method="post">
+    <div class="form-horizontal">
+        <h4>Claim</h4>
+        <hr />
+        <p>@ViewData["ErrorMessage"]</p>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductID" />
+        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="PolicyID" />
+        <input type="hidden" asp-for="Claim.RiskID" />
+        <input type="hidden" asp-for="Claim.RiskItemID" />
+        <div class="form-group">
+            <label asp-for="Claim.RegisterDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.RegisterDate" class="form-control" />
+                <span asp-validation-for="Claim.RegisterDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.IncidentDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.IncidentDate" class="form-control" />
+                <span asp-validation-for="Claim.IncidentDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ReportDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.ReportDate" class="form-control" />
+                <span asp-validation-for="Claim.ReportDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ReserveInsured" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.ReserveInsured" class="form-control" />
+                <span asp-validation-for="Claim.ReserveInsured" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ReserveThirdParty" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.ReserveThirdParty" class="form-control" />
+                <span asp-validation-for="Claim.ReserveThirdParty" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ClaimExcess" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.ClaimExcess" class="form-control" />
+                <span asp-validation-for="Claim.ClaimExcess" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ClaimClassID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.ClaimClassID" class="form-control" asp-items="@Model.ClaimClassList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="checkbox">
+                    <input asp-for="Claim.RecoverFromThirdParty" />
+                    <label asp-for="Claim.RecoverFromThirdParty"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.IncidentID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.IncidentID" class="form-control" asp-items="@Model.IncidentList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.RegionID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.RegionID" class="form-control" asp-items="@Model.RegionList"></select>
+            </div>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="Claim.ProvinceID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.ProvinceID" class="form-control" asp-items="@Model.ProvinceList"></select>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Claim.CountryID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.CountryID" class="form-control" asp-items="@Model.CountryList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.ClaimStatusID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Claim.ClaimStatusID" class="form-control" asp-items="@Model.ClaimStatusList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.IncidentDetail" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.IncidentDetail" class="form-control" />
+                <span asp-validation-for="Claim.IncidentDetail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Claim.Comment" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Claim.Comment" class="form-control" />
+                <span asp-validation-for="Claim.Comment" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" /> |
+                <a asp-controller="Policies" asp-action="PolicyRisks"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-clientId="@Model.ClientID"
+                   asp-route-policyId="@Model.PolicyID"
+                   class="btn btn-info">
+                    Return
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

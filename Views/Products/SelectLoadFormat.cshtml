@@ -1,0 +1,78 @@
+@model Isas.Models.InsurerViewModels.LoadFormatsViewModel
+
+@{
+    ViewData["Title"] = "Select Load Format";
+}
+
+<h2>Select Load Format</h2>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@Model.ProductName - File Formats</caption>
+    <thead>
+        <tr>
+            <th>
+                Format Name
+            </th>
+            <th>
+                File Type
+            </th>
+            <th>
+               Delimiter
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LoadFormats) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadFileType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Delimiter)
+            </td>
+            <td>
+                <a asp-action="BulkProductClient"
+                   asp-route-productId="@Model.ProductID"
+                   asp-route-loadFormatId="@item.ID"
+                   asp-route-uploadFileType="@item.UploadFileType"
+                   asp-route-delimiter="@item.Delimiter">
+                   Clients
+                </a> |
+                <a asp-controller="Policies"
+                   asp-action="BulkPolicy"
+                   asp-route-loadFormatId="@item.ID"
+                   asp-route-uploadFileType="@item.UploadFileType"
+                   asp-route-delimiter="@item.Delimiter">
+                   Policies
+                </a> |
+                <a asp-controller="Premiums"
+                   asp-action="BulkPremium"
+                   asp-route-loadFormatId="@item.ID"
+                   asp-route-uploadFileType="@item.UploadFileType"
+                   asp-route-delimiter="@item.Delimiter">
+                   Premiums
+                </a> |
+                <a asp-controller="Loans"
+                   asp-action="BulkLoan"
+                   asp-route-loadFormatId="@item.ID"
+                   asp-route-uploadFileType="@item.UploadFileType"
+                   asp-route-delimiter="@item.Delimiter">
+                   Loans
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="ProductClients"
+       asp-route-productId="@Model.ProductID"
+       class="btn btn-info">
+       Return
+    </a>
+</div>

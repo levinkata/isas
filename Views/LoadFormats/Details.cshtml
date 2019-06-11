@@ -1,0 +1,49 @@
+@model Isas.Models.LoadFormat
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Load Format</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadFileType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UploadFileType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Delimiter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Delimiter)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index"
+       asp-route-productId="@Model.ProductID"
+       class="btn btn-default">
+       Return
+    </a>
+</div>
+</body>
+</html>

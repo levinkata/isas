@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model Isas.Models.InsurerViewModels.UpLoadPremiumViewModel
+
+@{
+    ViewData["Title"] = "Upload Premium File";
+    Guid productId = Guid.Parse(Context.Session.GetString("ProductID"));
+}
+
+<h2>Upload Premium File</h2>
+
+<form asp-action="BulkPremium" asp-antiforgery="true" method="post" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Premium File</h4>
+        <hr />
+        <input type="hidden" asp-for="LoadFormatID" />
+        <input type="hidden" asp-for="UploadFileType" />
+        <input type="hidden" asp-for="Delimiter" />
+        <input type="hidden" asp-for="TableName" />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Enter Data Row #:</label>
+            <div class="col-md-10">
+                <input asp-for="StartRow" class="form-control" />
+                <span asp-validation-for="StartRow" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Select file to load:</label>
+            <div class="col-md-10">
+                <input type="file" asp-for="UpLoadFile" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Reference" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Reference" class="form-control" />
+                <span asp-validation-for="Reference" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ReceivableDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ReceivableDate" class="form-control" />
+                <span asp-validation-for="ReceivableDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PaymentTypeID" class="col-md-2 control-label">Payment Type</label>
+            <div class="col-md-10">
+                <select asp-for="PaymentTypeID" class="form-control" asp-items="@Model.PaymentTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PaymentAmount" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PaymentAmount" class="form-control" />
+                <span asp-validation-for="PaymentAmount" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="BatchNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="BatchNumber" class="form-control" />
+                <span asp-validation-for="BatchNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label asp-for="PremiumTypeID" class="col-md-2 control-label">Frequency</label>
+            <div class="col-md-10">
+                <select asp-for="PremiumTypeID" class="form-control" asp-items="@Model.PremiumTypeList"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PremiumDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="PremiumDate" class="form-control" />
+                <span asp-validation-for="PremiumDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload Selected Files" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Products"
+       asp-action="SelectLoadFormat"
+       asp-route-productId="@productId"
+       class="btn btn-default">
+       Return
+    </a>
+</div>

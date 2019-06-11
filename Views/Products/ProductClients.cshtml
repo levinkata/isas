@@ -1,0 +1,123 @@
+﻿@model PaginatedList<Isas.Models.ProductClient>
+
+@{
+    ViewData["Title"] = "Product Clients";
+}
+
+<h2>Product Clients</h2>
+
+<form asp-action="ProductClients" method="get">
+    <div class="form-horizontal">
+        <hr />
+        <input type="hidden" name="productId" value="@ViewData["ProductID"]" />
+        <div class="form-group">
+            <label class="col-md-2 control-label">Find by name: </label>
+            <div class="col-md-10">
+                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Search" class="btn btn-warning btn" /> |
+                <a asp-action="ProductClients" asp-route-productId="@ViewData["ProductID"]" class="btn btn-bracketed">Full List</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <caption style="color:royalblue">@ViewData["ProductName"] - Clients</caption>
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="ProductClients" asp-route-sortOrder="@ViewBag.NameSortParm">Last Name</a>
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                ID Number
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Birth Date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.FirstName)
+                </td>
+                <td>                    
+                    <a asp-controller="Policies" asp-action="Index" asp-route-productId="@item.ProductID"
+                       asp-route-clientId="@item.ClientID">@Html.DisplayFor(modelItem => item.Client.IDNumber)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.BirthDate)
+                </td>
+                <td>
+                    <a asp-action="DeleteProductClient"
+                       asp-route-productId="@item.ProductID"
+                       asp-route-clientId="@item.ClientID">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div>
+    <a asp-action="ProductClients"
+       asp-route-productId="@ViewData["ProductID"]"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex - 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-info @prevDisabled btn">
+       Previous
+    </a>
+    <a asp-action="ProductClients"
+       asp-route-productId="@ViewData["ProductID"]"
+       asp-route-sortOrder="@ViewData["CurrentSort"]"
+       asp-route-page="@(Model.PageIndex + 1)"
+       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+       class="btn btn-info @nextDisabled btn">
+       Next
+    </a> |
+    <a asp-controller="Products"
+       asp-action="CreateProductClient"
+       asp-route-onproduct="0"
+       asp-route-productId="@ViewData["ProductID"]"
+       class="btn btn-success">
+       + Add Client
+    </a> |
+    <a asp-controller="Products"
+       asp-action="SelectLoadFormat"
+       asp-route-productId="@ViewData["ProductID"]"
+       class="btn btn-danger">
+       Bulk Loads
+    </a> |
+    <a asp-controller="Products"
+       asp-action="Board"
+       asp-route-id="@ViewData["ProductID"]"
+       class="btn btn-info">
+       Return
+    </a>
+</div>
