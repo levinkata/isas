@@ -40,12 +40,13 @@
                     <li><a asp-area="" asp-controller="Clients" asp-action="Index">Clients</a></li>
                     <li><a href="#">Quotes</a></li>
                     <li><a href="#">Policies</a></li>
-                    <li><a href="#">Claims</a></li>
                     <li><a href="#">Invoicing</a></li>
                     <li><a asp-area="" asp-controller="Containers" asp-action="Index">Containers</a></li>
                     <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
+                        <a href="#" id="navbarDropdown" data-toggle="dropdown" role="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                            Messages 
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a href="#">Inbox</a></li>
                             <li><a href="#">Drafts</a></li>
                             <li><a href="#">Sent Items</a></li>

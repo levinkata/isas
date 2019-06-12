@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Isas.Migrations
 {
     [DbContext(typeof(InsurerDbContext))]
-    [Migration("20190508084245_Init")]
-    partial class Init
+    [Migration("20190612081640_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

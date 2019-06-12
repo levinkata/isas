@@ -339,7 +339,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll": {}
         }
       },
-      "Microsoft.AspNetCore.App/2.2.4": {
+      "Microsoft.AspNetCore.App/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "[5.2.6, 5.3.0)",
@@ -386,7 +386,7 @@
           "Microsoft.AspNetCore.HttpsPolicy": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Identity": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Identity.UI": "[2.2.0, 2.3.0)",
+          "Microsoft.AspNetCore.Identity.UI": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.JsonPatch": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Localization": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Localization.Routing": "[2.2.0, 2.3.0)",
@@ -395,7 +395,7 @@
           "Microsoft.AspNetCore.Mvc.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Analyzers": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.ApiExplorer": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Mvc.Core": "[2.2.2, 2.3.0)",
+          "Microsoft.AspNetCore.Mvc.Core": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Cors": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.DataAnnotations": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "[2.2.0, 2.3.0)",
@@ -404,7 +404,7 @@
           "Microsoft.AspNetCore.Mvc.Razor": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Razor.Extensions": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Razor.ViewCompilation": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Mvc.RazorPages": "[2.2.0, 2.3.0)",
+          "Microsoft.AspNetCore.Mvc.RazorPages": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.NodeServices": "[2.2.0, 2.3.0)",
@@ -463,7 +463,7 @@
           "Microsoft.Extensions.DependencyInjection": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.DiagnosticAdapter": "[2.2.0, 2.3.0)",
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "[2.2.0, 2.3.0)",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "[2.2.5, 2.3.0)",
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.FileProviders.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.FileProviders.Composite": "[2.2.0, 2.3.0)",
@@ -491,7 +491,7 @@
           "Microsoft.Extensions.Primitives": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.WebEncoders": "[2.2.0, 2.3.0)",
           "Microsoft.Net.Http.Headers": "[2.2.0, 2.3.0)",
-          "System.IO.Pipelines": "4.5.2"
+          "System.IO.Pipelines": "4.5.3"
         },
         "compile": {
           "lib/netcoreapp2.2/_._": {}
@@ -1135,7 +1135,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/2.2.0": {
+      "Microsoft.AspNetCore.Identity.UI/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -1262,7 +1262,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.ApiExplorer.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.Core/2.2.2": {
+      "Microsoft.AspNetCore.Mvc.Core/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.2.0",
@@ -1400,7 +1400,7 @@
           "build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.RazorPages/2.2.0": {
+      "Microsoft.AspNetCore.Mvc.RazorPages/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor": "2.2.0"
@@ -2539,7 +2539,7 @@
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
         }
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.0": {
+      "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "2.2.0",
@@ -3089,11 +3089,11 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.NETCore.App/2.2.4": {
+      "Microsoft.NETCore.App/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostPolicy": "2.2.4",
-          "Microsoft.NETCore.Platforms": "2.2.0",
+          "Microsoft.NETCore.DotNetHostPolicy": "2.2.5",
+          "Microsoft.NETCore.Platforms": "2.2.1",
           "Microsoft.NETCore.Targets": "2.0.0",
           "NETStandard.Library": "2.0.3"
         },
@@ -3247,22 +3247,22 @@
           "build/netcoreapp2.2/Microsoft.NETCore.App.targets": {}
         }
       },
-      "Microsoft.NETCore.DotNetAppHost/2.2.4": {
+      "Microsoft.NETCore.DotNetAppHost/2.2.5": {
         "type": "package"
       },
-      "Microsoft.NETCore.DotNetHostPolicy/2.2.4": {
+      "Microsoft.NETCore.DotNetHostPolicy/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostResolver": "2.2.4"
+          "Microsoft.NETCore.DotNetHostResolver": "2.2.5"
         }
       },
-      "Microsoft.NETCore.DotNetHostResolver/2.2.4": {
+      "Microsoft.NETCore.DotNetHostResolver/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetAppHost": "2.2.4"
+          "Microsoft.NETCore.DotNetAppHost": "2.2.5"
         }
       },
-      "Microsoft.NETCore.Platforms/2.2.0": {
+      "Microsoft.NETCore.Platforms/2.2.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -3785,7 +3785,7 @@
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
-      "Syncfusion.Compression.Net.Core/17.1.0.43": {
+      "Syncfusion.Compression.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -3797,13 +3797,13 @@
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.DocIO.Net.Core/17.1.0.43": {
+      "Syncfusion.DocIO.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43",
-          "Syncfusion.OfficeChart.Net.Core": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51",
+          "Syncfusion.OfficeChart.Net.Core": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll": {}
@@ -3812,7 +3812,7 @@
           "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll": {}
         }
       },
-      "Syncfusion.EJ/17.1.0.43": {
+      "Syncfusion.EJ/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.0",
@@ -3831,10 +3831,10 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.dll": {}
         }
       },
-      "Syncfusion.EJ.AspNet.Core/17.1.0.43": {
+      "Syncfusion.EJ.AspNet.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.EJ": "17.1.0.43"
+          "Syncfusion.EJ": "17.1.0.51"
         },
         "compile": {
           "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.dll": {}
@@ -3843,16 +3843,16 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.dll": {}
         }
       },
-      "Syncfusion.EJ.Export/17.1.0.43": {
+      "Syncfusion.EJ.Export/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.DocIO.Net.Core": "17.1.0.43",
-          "Syncfusion.EJ": "17.1.0.43",
-          "Syncfusion.OfficeChart.Net.Core": "17.1.0.43",
-          "Syncfusion.Pdf.Net.Core": "17.1.0.43",
-          "Syncfusion.XlsIO.Net.Core": "17.1.0.43",
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.DocIO.Net.Core": "17.1.0.51",
+          "Syncfusion.EJ": "17.1.0.51",
+          "Syncfusion.OfficeChart.Net.Core": "17.1.0.51",
+          "Syncfusion.Pdf.Net.Core": "17.1.0.51",
+          "Syncfusion.XlsIO.Net.Core": "17.1.0.51",
           "System.Net.Http": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
@@ -3864,7 +3864,7 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.Export.dll": {}
         }
       },
-      "Syncfusion.JavaScript/17.1.0.43": {
+      "Syncfusion.JavaScript/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.jQuery.Unobtrusive.Ajax": "3.0.0",
@@ -3873,7 +3873,7 @@
           "jQuery.Validation": "1.9.0"
         }
       },
-      "Syncfusion.Licensing/17.1.0.43": {
+      "Syncfusion.Licensing/17.1.0.51": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
@@ -3882,11 +3882,11 @@
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.OfficeChart.Net.Core/17.1.0.43": {
+      "Syncfusion.OfficeChart.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
@@ -3895,12 +3895,12 @@
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
         }
       },
-      "Syncfusion.Pdf.Net.Core/17.1.0.43": {
+      "Syncfusion.Pdf.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43",
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
@@ -3910,12 +3910,12 @@
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {}
         }
       },
-      "Syncfusion.XlsIO.Net.Core/17.1.0.43": {
+      "Syncfusion.XlsIO.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll": {}
@@ -4427,10 +4427,10 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/4.5.2": {
+      "System.IO.Pipelines/4.5.3": {
         "type": "package",
         "compile": {
-          "ref/netstandard1.3/System.IO.Pipelines.dll": {}
+          "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
         },
         "runtime": {
           "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
@@ -5990,7 +5990,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll": {}
         }
       },
-      "Microsoft.AspNetCore.App/2.2.4": {
+      "Microsoft.AspNetCore.App/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "[5.2.6, 5.3.0)",
@@ -6037,7 +6037,7 @@
           "Microsoft.AspNetCore.HttpsPolicy": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Identity": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Identity.UI": "[2.2.0, 2.3.0)",
+          "Microsoft.AspNetCore.Identity.UI": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.JsonPatch": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Localization": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Localization.Routing": "[2.2.0, 2.3.0)",
@@ -6046,7 +6046,7 @@
           "Microsoft.AspNetCore.Mvc.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Analyzers": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.ApiExplorer": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Mvc.Core": "[2.2.2, 2.3.0)",
+          "Microsoft.AspNetCore.Mvc.Core": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Cors": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.DataAnnotations": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "[2.2.0, 2.3.0)",
@@ -6055,7 +6055,7 @@
           "Microsoft.AspNetCore.Mvc.Razor": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Razor.Extensions": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.Razor.ViewCompilation": "[2.2.0, 2.3.0)",
-          "Microsoft.AspNetCore.Mvc.RazorPages": "[2.2.0, 2.3.0)",
+          "Microsoft.AspNetCore.Mvc.RazorPages": "[2.2.5, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.TagHelpers": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "[2.2.0, 2.3.0)",
           "Microsoft.AspNetCore.NodeServices": "[2.2.0, 2.3.0)",
@@ -6114,7 +6114,7 @@
           "Microsoft.Extensions.DependencyInjection": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.DiagnosticAdapter": "[2.2.0, 2.3.0)",
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "[2.2.0, 2.3.0)",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "[2.2.5, 2.3.0)",
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.FileProviders.Abstractions": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.FileProviders.Composite": "[2.2.0, 2.3.0)",
@@ -6142,7 +6142,7 @@
           "Microsoft.Extensions.Primitives": "[2.2.0, 2.3.0)",
           "Microsoft.Extensions.WebEncoders": "[2.2.0, 2.3.0)",
           "Microsoft.Net.Http.Headers": "[2.2.0, 2.3.0)",
-          "System.IO.Pipelines": "4.5.2"
+          "System.IO.Pipelines": "4.5.3"
         },
         "compile": {
           "lib/netcoreapp2.2/_._": {}
@@ -6786,7 +6786,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Identity.UI/2.2.0": {
+      "Microsoft.AspNetCore.Identity.UI/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Identity": "2.2.0",
@@ -6913,7 +6913,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.ApiExplorer.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.Core/2.2.2": {
+      "Microsoft.AspNetCore.Mvc.Core/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.2.0",
@@ -7051,7 +7051,7 @@
           "build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets": {}
         }
       },
-      "Microsoft.AspNetCore.Mvc.RazorPages/2.2.0": {
+      "Microsoft.AspNetCore.Mvc.RazorPages/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor": "2.2.0"
@@ -8183,7 +8183,7 @@
           "lib/netcoreapp2.0/Microsoft.Extensions.DiagnosticAdapter.dll": {}
         }
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.0": {
+      "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "2.2.0",
@@ -8733,14 +8733,14 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.NETCore.App/2.2.4": {
+      "Microsoft.NETCore.App/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostPolicy": "2.2.4",
-          "Microsoft.NETCore.Platforms": "2.2.0",
+          "Microsoft.NETCore.DotNetHostPolicy": "2.2.5",
+          "Microsoft.NETCore.Platforms": "2.2.1",
           "Microsoft.NETCore.Targets": "2.0.0",
           "NETStandard.Library": "2.0.3",
-          "runtime.win-x64.Microsoft.NETCore.App": "2.2.4"
+          "runtime.win-x64.Microsoft.NETCore.App": "2.2.5"
         },
         "compile": {
           "ref/netcoreapp2.2/Microsoft.CSharp.dll": {},
@@ -8892,27 +8892,27 @@
           "build/netcoreapp2.2/Microsoft.NETCore.App.targets": {}
         }
       },
-      "Microsoft.NETCore.DotNetAppHost/2.2.4": {
+      "Microsoft.NETCore.DotNetAppHost/2.2.5": {
         "type": "package",
         "dependencies": {
-          "runtime.win-x64.Microsoft.NETCore.DotNetAppHost": "2.2.4"
+          "runtime.win-x64.Microsoft.NETCore.DotNetAppHost": "2.2.5"
         }
       },
-      "Microsoft.NETCore.DotNetHostPolicy/2.2.4": {
+      "Microsoft.NETCore.DotNetHostPolicy/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostResolver": "2.2.4",
-          "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy": "2.2.4"
+          "Microsoft.NETCore.DotNetHostResolver": "2.2.5",
+          "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy": "2.2.5"
         }
       },
-      "Microsoft.NETCore.DotNetHostResolver/2.2.4": {
+      "Microsoft.NETCore.DotNetHostResolver/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetAppHost": "2.2.4",
-          "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver": "2.2.4"
+          "Microsoft.NETCore.DotNetAppHost": "2.2.5",
+          "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver": "2.2.5"
         }
       },
-      "Microsoft.NETCore.Platforms/2.2.0": {
+      "Microsoft.NETCore.Platforms/2.2.1": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -9199,7 +9199,7 @@
       "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "type": "package"
       },
-      "runtime.win-x64.Microsoft.NETCore.App/2.2.4": {
+      "runtime.win-x64.Microsoft.NETCore.App/2.2.5": {
         "type": "package",
         "compile": {
           "ref/netstandard/_._": {}
@@ -9410,34 +9410,34 @@
           "runtimes/win-x64/native/coreclr.dll": {},
           "runtimes/win-x64/native/dbgshim.dll": {},
           "runtimes/win-x64/native/mscordaccore.dll": {},
-          "runtimes/win-x64/native/mscordaccore_amd64_amd64_4.6.27521.02.dll": {},
+          "runtimes/win-x64/native/mscordaccore_amd64_amd64_4.6.27617.05.dll": {},
           "runtimes/win-x64/native/mscordbi.dll": {},
           "runtimes/win-x64/native/mscorrc.debug.dll": {},
           "runtimes/win-x64/native/mscorrc.dll": {},
           "runtimes/win-x64/native/sos.dll": {},
-          "runtimes/win-x64/native/sos_amd64_amd64_4.6.27521.02.dll": {},
+          "runtimes/win-x64/native/sos_amd64_amd64_4.6.27617.05.dll": {},
           "runtimes/win-x64/native/ucrtbase.dll": {}
         }
       },
-      "runtime.win-x64.Microsoft.NETCore.DotNetAppHost/2.2.4": {
+      "runtime.win-x64.Microsoft.NETCore.DotNetAppHost/2.2.5": {
         "type": "package",
         "native": {
           "runtimes/win-x64/native/apphost.exe": {}
         }
       },
-      "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy/2.2.4": {
+      "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostResolver": "2.2.4"
+          "Microsoft.NETCore.DotNetHostResolver": "2.2.5"
         },
         "native": {
           "runtimes/win-x64/native/hostpolicy.dll": {}
         }
       },
-      "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver/2.2.4": {
+      "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver/2.2.5": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetAppHost": "2.2.4"
+          "Microsoft.NETCore.DotNetAppHost": "2.2.5"
         },
         "native": {
           "runtimes/win-x64/native/hostfxr.dll": {}
@@ -9559,7 +9559,7 @@
           "lib/netstandard1.5/StackExchange.Redis.StrongName.dll": {}
         }
       },
-      "Syncfusion.Compression.Net.Core/17.1.0.43": {
+      "Syncfusion.Compression.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0"
@@ -9571,13 +9571,13 @@
           "lib/netstandard2.0/Syncfusion.Compression.Portable.dll": {}
         }
       },
-      "Syncfusion.DocIO.Net.Core/17.1.0.43": {
+      "Syncfusion.DocIO.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43",
-          "Syncfusion.OfficeChart.Net.Core": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51",
+          "Syncfusion.OfficeChart.Net.Core": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll": {}
@@ -9586,7 +9586,7 @@
           "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll": {}
         }
       },
-      "Syncfusion.EJ/17.1.0.43": {
+      "Syncfusion.EJ/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.0",
@@ -9605,10 +9605,10 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.dll": {}
         }
       },
-      "Syncfusion.EJ.AspNet.Core/17.1.0.43": {
+      "Syncfusion.EJ.AspNet.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.EJ": "17.1.0.43"
+          "Syncfusion.EJ": "17.1.0.51"
         },
         "compile": {
           "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.dll": {}
@@ -9617,16 +9617,16 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.dll": {}
         }
       },
-      "Syncfusion.EJ.Export/17.1.0.43": {
+      "Syncfusion.EJ.Export/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.DocIO.Net.Core": "17.1.0.43",
-          "Syncfusion.EJ": "17.1.0.43",
-          "Syncfusion.OfficeChart.Net.Core": "17.1.0.43",
-          "Syncfusion.Pdf.Net.Core": "17.1.0.43",
-          "Syncfusion.XlsIO.Net.Core": "17.1.0.43",
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.DocIO.Net.Core": "17.1.0.51",
+          "Syncfusion.EJ": "17.1.0.51",
+          "Syncfusion.OfficeChart.Net.Core": "17.1.0.51",
+          "Syncfusion.Pdf.Net.Core": "17.1.0.51",
+          "Syncfusion.XlsIO.Net.Core": "17.1.0.51",
           "System.Net.Http": "4.3.0",
           "System.Xml.XPath.XmlDocument": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
@@ -9638,7 +9638,7 @@
           "lib/netcoreapp2.0/Syncfusion.EJ.Export.dll": {}
         }
       },
-      "Syncfusion.JavaScript/17.1.0.43": {
+      "Syncfusion.JavaScript/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "Microsoft.jQuery.Unobtrusive.Ajax": "3.0.0",
@@ -9647,7 +9647,7 @@
           "jQuery.Validation": "1.9.0"
         }
       },
-      "Syncfusion.Licensing/17.1.0.43": {
+      "Syncfusion.Licensing/17.1.0.51": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
@@ -9656,11 +9656,11 @@
           "lib/netstandard2.0/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.OfficeChart.Net.Core/17.1.0.43": {
+      "Syncfusion.OfficeChart.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
@@ -9669,12 +9669,12 @@
           "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll": {}
         }
       },
-      "Syncfusion.Pdf.Net.Core/17.1.0.43": {
+      "Syncfusion.Pdf.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43",
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
         "compile": {
@@ -9684,12 +9684,12 @@
           "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll": {}
         }
       },
-      "Syncfusion.XlsIO.Net.Core/17.1.0.43": {
+      "Syncfusion.XlsIO.Net.Core/17.1.0.51": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "2.0.0",
-          "Syncfusion.Compression.Net.Core": "17.1.0.43",
-          "Syncfusion.Licensing": "17.1.0.43"
+          "Syncfusion.Compression.Net.Core": "17.1.0.51",
+          "Syncfusion.Licensing": "17.1.0.51"
         },
         "compile": {
           "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll": {}
@@ -10160,10 +10160,10 @@
           "lib/netstandard1.3/System.IO.FileSystem.Primitives.dll": {}
         }
       },
-      "System.IO.Pipelines/4.5.2": {
+      "System.IO.Pipelines/4.5.3": {
         "type": "package",
         "compile": {
-          "ref/netstandard1.3/System.IO.Pipelines.dll": {}
+          "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
         },
         "runtime": {
           "lib/netcoreapp2.1/System.IO.Pipelines.dll": {}
@@ -11561,17 +11561,17 @@
         "microsoft.aspnetcore.antiforgery.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.App/2.2.4": {
-      "sha512": "igJom3i/CFechm5/61QLspm+1PlitHf6kz5rtwvJS41tXKmUiMzcpzE8oZDRKMwssD03HbW1FyYbDlY6GASXBQ==",
+    "Microsoft.AspNetCore.App/2.2.5": {
+      "sha512": "CgMcW/GCdpSysNr+4T7N7XVWEpRZTruIGx3EfgqRaqVhNaqyEeEShcJkH/oBlv0wX3D7tXeh81xaxhuRGjMfKQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.app/2.2.4",
+      "path": "microsoft.aspnetcore.app/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/netcoreapp2.2/Microsoft.AspNetCore.App.props",
         "build/netcoreapp2.2/Microsoft.AspNetCore.App.targets",
         "lib/netcoreapp2.2/_._",
-        "microsoft.aspnetcore.app.2.2.4.nupkg.sha512",
+        "microsoft.aspnetcore.app.2.2.5.nupkg.sha512",
         "microsoft.aspnetcore.app.nuspec"
       ]
     },
@@ -12168,10 +12168,10 @@
         "microsoft.aspnetcore.identity.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Identity.UI/2.2.0": {
-      "sha512": "T4B/Uaqd4u7jN6XDHbEBTZO002HquQKU49V+PvWEGKoiJBgZ96JskDr/NsfgVin8n8/bRSx+4A1WwlkMDKcNBg==",
+    "Microsoft.AspNetCore.Identity.UI/2.2.5": {
+      "sha512": "iYtjnE1GlKTUnUMNvRPsUZs6bQQLB+Nd+6FNbbpzhBItGFDgyTGqZ/RkIAUd1yxDO0O9JzBqxMS1uNNDn/ZQog==",
       "type": "package",
-      "path": "microsoft.aspnetcore.identity.ui/2.2.0",
+      "path": "microsoft.aspnetcore.identity.ui/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -12180,7 +12180,7 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Identity.UI.Views.V4.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Identity.UI.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Identity.UI.xml",
-        "microsoft.aspnetcore.identity.ui.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.identity.ui.2.2.5.nupkg.sha512",
         "microsoft.aspnetcore.identity.ui.nuspec"
       ]
     },
@@ -12287,16 +12287,16 @@
         "microsoft.aspnetcore.mvc.apiexplorer.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Core/2.2.2": {
-      "sha512": "NJ0I39z3LHwZo23FjBDQr7nYVBLrH1CilAjqp18IJIJnWAqDHoaq1RftZWMISUH1iZgwW13q/WU68Yj9Kayg/w==",
+    "Microsoft.AspNetCore.Mvc.Core/2.2.5": {
+      "sha512": "/8sr8ixIUD57UFwUntha9bOwex7/AkZfdk1f9oNJG1Ek7p/uuKVa7fuHmYZpQOf35Oxrt+2Ku4WPwMSbNxOuWg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.core/2.2.2",
+      "path": "microsoft.aspnetcore.mvc.core/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Core.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Core.xml",
-        "microsoft.aspnetcore.mvc.core.2.2.2.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.core.2.2.5.nupkg.sha512",
         "microsoft.aspnetcore.mvc.core.nuspec"
       ]
     },
@@ -12411,16 +12411,16 @@
         "microsoft.aspnetcore.mvc.razor.viewcompilation.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.RazorPages/2.2.0": {
-      "sha512": "GsMs4QKCf5VgdGZq9/nfAVkMJ/8uE4ie0Iugv4FtxbHBmMdpPQQBfTFKoUpwMbgIRw7hzV8xy2HPPU5o58PsdQ==",
+    "Microsoft.AspNetCore.Mvc.RazorPages/2.2.5": {
+      "sha512": "l0Lcx0lfCF7SJQiv+5Aib9/pdkP4sXwMsal+pdAUekHu4MJrZB80r+LGvHyaJF8Z7ROMnjQ0oDVCccdneqXX8Q==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.razorpages/2.2.0",
+      "path": "microsoft.aspnetcore.mvc.razorpages/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.RazorPages.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.RazorPages.xml",
-        "microsoft.aspnetcore.mvc.razorpages.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.razorpages.2.2.5.nupkg.sha512",
         "microsoft.aspnetcore.mvc.razorpages.nuspec"
       ]
     },
@@ -13632,16 +13632,16 @@
         "microsoft.extensions.diagnosticadapter.nuspec"
       ]
     },
-    "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.0": {
-      "sha512": "p9njfetdebuplBCkIJPqyxsUIOBf/7B/RhPXZnFjh+/wqWNRqhP/1s18q1me9XP0l8uCD8TqJRPC+L0MCoUGRA==",
+    "Microsoft.Extensions.Diagnostics.HealthChecks/2.2.5": {
+      "sha512": "/Il+nqw4dgR0b01qJnE9e99bnF8JpZQye1dTlTn9OSKFkdPXJsNZj9uzaJJIhd+Bc17saIqRW8gUUSLqlayqKg==",
       "type": "package",
-      "path": "microsoft.extensions.diagnostics.healthchecks/2.2.0",
+      "path": "microsoft.extensions.diagnostics.healthchecks/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Diagnostics.HealthChecks.xml",
-        "microsoft.extensions.diagnostics.healthchecks.2.2.0.nupkg.sha512",
+        "microsoft.extensions.diagnostics.healthchecks.2.2.5.nupkg.sha512",
         "microsoft.extensions.diagnostics.healthchecks.nuspec"
       ]
     },
@@ -14491,10 +14491,10 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
-    "Microsoft.NETCore.App/2.2.4": {
-      "sha512": "sdmVcsM8yCkv1ZUjTnMHdcEhj/SxsZNEbE0anHgRsvu0aJfEKFhsLTndZSkWLdN8/hDDGT4y4PQ6TkB94l/q9A==",
+    "Microsoft.NETCore.App/2.2.5": {
+      "sha512": "SeOCRodgG7E5Ta/TXXL2Dkk4PxI2WpEUL3JjyLyp3yI+CYfAR5f159E516S4sFzY+8WvW+ZxQv4LCsGgFGRsrw==",
       "type": "package",
-      "path": "microsoft.netcore.app/2.2.4",
+      "path": "microsoft.netcore.app/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -14504,7 +14504,7 @@
         "build/netcoreapp2.2/Microsoft.NETCore.App.PlatformManifest.txt",
         "build/netcoreapp2.2/Microsoft.NETCore.App.props",
         "build/netcoreapp2.2/Microsoft.NETCore.App.targets",
-        "microsoft.netcore.app.2.2.4.nupkg.sha512",
+        "microsoft.netcore.app.2.2.5.nupkg.sha512",
         "microsoft.netcore.app.nuspec",
         "ref/netcoreapp2.2/Microsoft.CSharp.dll",
         "ref/netcoreapp2.2/Microsoft.CSharp.xml",
@@ -14756,59 +14756,59 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetAppHost/2.2.4": {
-      "sha512": "qk5RRYuvrd5hB0UxcvabOQmbLMXpRyrp6r83fvQ0SWtAvecxRWCxgEd/3heGmaxCWKNSdqSZAS7UKLKd/NvAng==",
+    "Microsoft.NETCore.DotNetAppHost/2.2.5": {
+      "sha512": "4n6+RzNn2vqxWaewPX+qtzlwQog1ynL/KnnEkb/H4q8+TSqOj3mIoSKmreXlQkZ5ENFtaQD22dtS5TG4P3Wcxw==",
       "type": "package",
-      "path": "microsoft.netcore.dotnetapphost/2.2.4",
+      "path": "microsoft.netcore.dotnetapphost/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
+        "microsoft.netcore.dotnetapphost.2.2.5.nupkg.sha512",
         "microsoft.netcore.dotnetapphost.nuspec",
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetHostPolicy/2.2.4": {
-      "sha512": "wqWhmRG/ZyR8xuqE1PA2cxPJ5cBN2SkJq3cR9eS+7/4RLtKrz0qgQIgxd1e6uxCcs44/RkMCiP0+RuKIhc6Wig==",
+    "Microsoft.NETCore.DotNetHostPolicy/2.2.5": {
+      "sha512": "e9lvk+RVmI8mMOKrmf0rIpj2eN0qdua9ojyKOPdlPSmLf1uySZFoAVzQBK+6ew/d/OdUvCdZ7WfxErgEHrC4oQ==",
       "type": "package",
-      "path": "microsoft.netcore.dotnethostpolicy/2.2.4",
+      "path": "microsoft.netcore.dotnethostpolicy/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
+        "microsoft.netcore.dotnethostpolicy.2.2.5.nupkg.sha512",
         "microsoft.netcore.dotnethostpolicy.nuspec",
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetHostResolver/2.2.4": {
-      "sha512": "EYNr0fJJzLIGkLduDA1T3yldBRhWjYmuRYQu3NNohX93KEraFzz5efXeDryc9pwbnRyN+GKgKP3v7NBND9TqYg==",
+    "Microsoft.NETCore.DotNetHostResolver/2.2.5": {
+      "sha512": "uByTxYOmyv3Pzuw90R9HxLSrJSGVq43K8I01Bc+H+ZaG0PkKXXQg1wHU8b1c00eukcJdVoM5a4oessIgeRosUg==",
       "type": "package",
-      "path": "microsoft.netcore.dotnethostresolver/2.2.4",
+      "path": "microsoft.netcore.dotnethostresolver/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
+        "microsoft.netcore.dotnethostresolver.2.2.5.nupkg.sha512",
         "microsoft.netcore.dotnethostresolver.nuspec",
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.Platforms/2.2.0": {
-      "sha512": "T/J+XZo+YheFTJh8/4uoeJDdz5qOmOMkjg6/VL8mHJ9AnP8+fmV/kcbxeXsob0irRNiChf+V0ig1MCRLp/+Kog==",
+    "Microsoft.NETCore.Platforms/2.2.1": {
+      "sha512": "QRGQDN9a/RflmqEpT47gJ04befYL1T+Z7ctRuBfc5PdUO3k5VnV5Y1glBMnWbAPGfP62x8EAwmZPNEpsYX/qig==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/2.2.0",
+      "path": "microsoft.netcore.platforms/2.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.2.2.0.nupkg.sha512",
+        "microsoft.netcore.platforms.2.2.1.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -15468,10 +15468,10 @@
         "version.txt"
       ]
     },
-    "runtime.win-x64.Microsoft.NETCore.App/2.2.4": {
-      "sha512": "MqrtLW1TSc/TsAU7QsarB4l4PqOd9Z1Mp/Ia3+eYgdaZS2mXgWpSpqqvFa9Wd/kAyXRoQtnXTPO+sjKVjfIebg==",
+    "runtime.win-x64.Microsoft.NETCore.App/2.2.5": {
+      "sha512": "zwIfEDfL06fLXyM5a5ugI8jbIlkGZ6CCjkB7h3+VSS7WnNo+dn025dSLCPVdS9Kth8AdOaEu88Fe5zRoRkUzJA==",
       "type": "package",
-      "path": "runtime.win-x64.microsoft.netcore.app/2.2.4",
+      "path": "runtime.win-x64.microsoft.netcore.app/2.2.5",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -15480,7 +15480,7 @@
         "Microsoft.NETCore.App.versions.txt",
         "THIRD-PARTY-NOTICES.TXT",
         "ref/netstandard/_._",
-        "runtime.win-x64.microsoft.netcore.app.2.2.4.nupkg.sha512",
+        "runtime.win-x64.microsoft.netcore.app.2.2.5.nupkg.sha512",
         "runtime.win-x64.microsoft.netcore.app.nuspec",
         "runtimes/win-x64/lib/netcoreapp2.2/Microsoft.CSharp.dll",
         "runtimes/win-x64/lib/netcoreapp2.2/Microsoft.VisualBasic.dll",
@@ -15685,56 +15685,56 @@
         "runtimes/win-x64/native/coreclr.dll",
         "runtimes/win-x64/native/dbgshim.dll",
         "runtimes/win-x64/native/mscordaccore.dll",
-        "runtimes/win-x64/native/mscordaccore_amd64_amd64_4.6.27521.02.dll",
+        "runtimes/win-x64/native/mscordaccore_amd64_amd64_4.6.27617.05.dll",
         "runtimes/win-x64/native/mscordbi.dll",
         "runtimes/win-x64/native/mscorrc.debug.dll",
         "runtimes/win-x64/native/mscorrc.dll",
         "runtimes/win-x64/native/sos.dll",
-        "runtimes/win-x64/native/sos_amd64_amd64_4.6.27521.02.dll",
+        "runtimes/win-x64/native/sos_amd64_amd64_4.6.27617.05.dll",
         "runtimes/win-x64/native/ucrtbase.dll",
         "tools/crossgen.exe"
       ]
     },
-    "runtime.win-x64.Microsoft.NETCore.DotNetAppHost/2.2.4": {
-      "sha512": "RJjsHxoYVAn6LTYKoiWhD4BjkFAb+ccrzALpWpJv8rWFFV//T5FKZmDPAYyIK6TjUxO0YXntHafBYU0PfsnfNg==",
+    "runtime.win-x64.Microsoft.NETCore.DotNetAppHost/2.2.5": {
+      "sha512": "N+BpL8bSuWgqojQr/LotuH8McSq+Y1QFFqX2okIdCqYohtNtjepVI6Ma1H+aTrtkztBg5Llr8aWybA7pQIFLcg==",
       "type": "package",
-      "path": "runtime.win-x64.microsoft.netcore.dotnetapphost/2.2.4",
+      "path": "runtime.win-x64.microsoft.netcore.dotnetapphost/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.win-x64.microsoft.netcore.dotnetapphost.2.2.4.nupkg.sha512",
+        "runtime.win-x64.microsoft.netcore.dotnetapphost.2.2.5.nupkg.sha512",
         "runtime.win-x64.microsoft.netcore.dotnetapphost.nuspec",
         "runtimes/win-x64/native/apphost.exe",
         "version.txt"
       ]
     },
-    "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy/2.2.4": {
-      "sha512": "iH8ANB6r1p31tkppjNzNOGLejNMVbMY3HRCAQ+fZ7wOm5O1bf/bhU76hZN1fMLZc5CIzTSEFcnLatoa2ZpQ1Uw==",
+    "runtime.win-x64.Microsoft.NETCore.DotNetHostPolicy/2.2.5": {
+      "sha512": "QxuS7ktq7UafxoAoP36Edp6iLM02NH3H5oE2fpjOaU25QZkOPUXnid3xntniP8hriUpZ1h9UYTdcCzAY8V52Xw==",
       "type": "package",
-      "path": "runtime.win-x64.microsoft.netcore.dotnethostpolicy/2.2.4",
+      "path": "runtime.win-x64.microsoft.netcore.dotnethostpolicy/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.win-x64.microsoft.netcore.dotnethostpolicy.2.2.4.nupkg.sha512",
+        "runtime.win-x64.microsoft.netcore.dotnethostpolicy.2.2.5.nupkg.sha512",
         "runtime.win-x64.microsoft.netcore.dotnethostpolicy.nuspec",
         "runtimes/win-x64/native/hostpolicy.dll",
         "version.txt"
       ]
     },
-    "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver/2.2.4": {
-      "sha512": "amIRE/uq6Z5wqcMwZUPZbkXYNsPluGJonKwBWgI0WBjthLgdzPss33bdjhEihEZVpmGJ2HenfZp0os/D9zgYuQ==",
+    "runtime.win-x64.Microsoft.NETCore.DotNetHostResolver/2.2.5": {
+      "sha512": "JqsHz47Ryx9PrTkUTeqaUQmjbd2QgfWS1PRq68apLJJi4ubPQXoHteCIizyR/DwdTzBfYRdSwufFKOBtp0GpFQ==",
       "type": "package",
-      "path": "runtime.win-x64.microsoft.netcore.dotnethostresolver/2.2.4",
+      "path": "runtime.win-x64.microsoft.netcore.dotnethostresolver/2.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "runtime.win-x64.microsoft.netcore.dotnethostresolver.2.2.4.nupkg.sha512",
+        "runtime.win-x64.microsoft.netcore.dotnethostresolver.2.2.5.nupkg.sha512",
         "runtime.win-x64.microsoft.netcore.dotnethostresolver.nuspec",
         "runtimes/win-x64/native/hostfxr.dll",
         "version.txt"
@@ -15922,10 +15922,10 @@
         "stackexchange.redis.strongname.nuspec"
       ]
     },
-    "Syncfusion.Compression.Net.Core/17.1.0.43": {
-      "sha512": "+t4+WyJIIFC+cOYR3LPiCrzoX4Gzj9aZ12BcNLp7djfIPG8VH/bQxl8OcAFOw5Li5ufYeRufSSCCpIJ24LxzwA==",
+    "Syncfusion.Compression.Net.Core/17.1.0.51": {
+      "sha512": "lZ/L70aTW9O61lLEHXA3h+a47U/ZS81mxK6QMo7hMFV0iqh/6pUnsz8Wf/kXZ9SNi3Ue2RbGRyLjCCy02PUDSA==",
       "type": "package",
-      "path": "syncfusion.compression.net.core/17.1.0.43",
+      "path": "syncfusion.compression.net.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -15943,14 +15943,14 @@
         "lib/netstandard1.4/Syncfusion.Compression.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Compression.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Compression.Portable.xml",
-        "syncfusion.compression.net.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.compression.net.core.17.1.0.51.nupkg.sha512",
         "syncfusion.compression.net.core.nuspec"
       ]
     },
-    "Syncfusion.DocIO.Net.Core/17.1.0.43": {
-      "sha512": "UB13ObwzOkrgefvuFvrZ6NN7mtzk5s92Ux/AsC9yX/Gsota/hRAMSQmRyS2iDtMX7fJoeDSeAFS6HifRcfrUUg==",
+    "Syncfusion.DocIO.Net.Core/17.1.0.51": {
+      "sha512": "IiPJ0WzZNm2EAjXbi/G6IeWlSDBtZnyOVH8kM+W9QGO7KofgxD4gR9RsAw8sP3b+Hyu274UeCM4ENKFcpF3wcw==",
       "type": "package",
-      "path": "syncfusion.docio.net.core/17.1.0.43",
+      "path": "syncfusion.docio.net.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -15968,14 +15968,14 @@
         "lib/netstandard1.4/Syncfusion.DocIO.Portable.xml",
         "lib/netstandard2.0/Syncfusion.DocIO.Portable.dll",
         "lib/netstandard2.0/Syncfusion.DocIO.Portable.xml",
-        "syncfusion.docio.net.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.docio.net.core.17.1.0.51.nupkg.sha512",
         "syncfusion.docio.net.core.nuspec"
       ]
     },
-    "Syncfusion.EJ/17.1.0.43": {
-      "sha512": "YKIknkBdAoIh9ds9oEwAEekqiHU/SzgxL67E19LGInDvFO6UbNUcqEgtKgGKyqAGLpfwR2dU2C1B0coQMUU/mg==",
+    "Syncfusion.EJ/17.1.0.51": {
+      "sha512": "lLiX/HIa7qflHqkCFwlRIt/wA2cOPcN+PFtX5WCnfY5zbB1HFd6a8sSu8HwGV4gCwr2JYeIV7zhyf73ZCbSnFw==",
       "type": "package",
-      "path": "syncfusion.ej/17.1.0.43",
+      "path": "syncfusion.ej/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -15987,14 +15987,14 @@
         "lib/netcoreapp1.1/Syncfusion.EJ.xml",
         "lib/netcoreapp2.0/Syncfusion.EJ.dll",
         "lib/netcoreapp2.0/Syncfusion.EJ.xml",
-        "syncfusion.ej.17.1.0.43.nupkg.sha512",
+        "syncfusion.ej.17.1.0.51.nupkg.sha512",
         "syncfusion.ej.nuspec"
       ]
     },
-    "Syncfusion.EJ.AspNet.Core/17.1.0.43": {
-      "sha512": "x/o9PztrGghnkM3qL81Y9yv8YdbIeoXwXZuKLUVXp0crSYol7jPTA2TVjPQYUptKs5eFuzLgaZt6G5Qto7JO2A==",
+    "Syncfusion.EJ.AspNet.Core/17.1.0.51": {
+      "sha512": "fxiwtpKmgv7luU+9qgjflCOmV3NMpBdnC0dQhkHDmmD5IQaa9EgUX03h7mD8BZjuc+dFvpiizV+0jA16pxt1Ew==",
       "type": "package",
-      "path": "syncfusion.ej.aspnet.core/17.1.0.43",
+      "path": "syncfusion.ej.aspnet.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16006,14 +16006,14 @@
         "lib/netcoreapp1.1/Syncfusion.EJ.AspNet.Core.xml",
         "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.dll",
         "lib/netcoreapp2.0/Syncfusion.EJ.AspNet.Core.xml",
-        "syncfusion.ej.aspnet.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.ej.aspnet.core.17.1.0.51.nupkg.sha512",
         "syncfusion.ej.aspnet.core.nuspec"
       ]
     },
-    "Syncfusion.EJ.Export/17.1.0.43": {
-      "sha512": "YjXF9yv28udNalgbxZ1+jhJMW4shDR+kRLhS8WJX+gkKOFGTFHcfkYB5yeNMi0pdjTJNGxwWFPtpfhrZ/Ua7pw==",
+    "Syncfusion.EJ.Export/17.1.0.51": {
+      "sha512": "8Hkn6JS5BLDdtH+w1XtkGrBj7svj1eqIFDc9MjlJrrg8kAn06DKP9Fj1K3zgRnliGOI+cZ/Dx3Wy0S1WokJWsg==",
       "type": "package",
-      "path": "syncfusion.ej.export/17.1.0.43",
+      "path": "syncfusion.ej.export/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16025,14 +16025,14 @@
         "lib/netcoreapp1.1/Syncfusion.EJ.Export.xml",
         "lib/netcoreapp2.0/Syncfusion.EJ.Export.dll",
         "lib/netcoreapp2.0/Syncfusion.EJ.Export.xml",
-        "syncfusion.ej.export.17.1.0.43.nupkg.sha512",
+        "syncfusion.ej.export.17.1.0.51.nupkg.sha512",
         "syncfusion.ej.export.nuspec"
       ]
     },
-    "Syncfusion.JavaScript/17.1.0.43": {
-      "sha512": "css7vSJsjQJkLs3yUl1NWlzbze5WyqgXow7p04N/PhnwCj/EERqyXTDWTG8l6mn3CS7RHQGN/PufTA9+u8Tt8A==",
+    "Syncfusion.JavaScript/17.1.0.51": {
+      "sha512": "kqnJhdB76n7Jt40miiivPR6QMliDk/LFo95p0zPypfn6W1Ck0w8shCqY7GTEnFdj0389rQBI/WzTQvZ/TV+whQ==",
       "type": "package",
-      "path": "syncfusion.javascript/17.1.0.43",
+      "path": "syncfusion.javascript/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16555,14 +16555,14 @@
         "content/Scripts/ej/web/ej.waitingpopup.min.js",
         "content/Scripts/ej/web/ej.web.all.min.js",
         "content/Scripts/jsrender.min.js",
-        "syncfusion.javascript.17.1.0.43.nupkg.sha512",
+        "syncfusion.javascript.17.1.0.51.nupkg.sha512",
         "syncfusion.javascript.nuspec"
       ]
     },
-    "Syncfusion.Licensing/17.1.0.43": {
-      "sha512": "6DoxMJO9RMxpya/CIMlLkeUTew/zJsqIX2C3rcpYONSol/8GhS1zLDRPTzwHHqqhIyNwmcEow+zcHmLqC0d0BQ==",
+    "Syncfusion.Licensing/17.1.0.51": {
+      "sha512": "lWazj5820RVAhgTXP/VYerokJXEGoLM/SVjXJC1Z+HCxzFK7mc1BgYv7UZ/xm3D16h0U7aUIf+CzeP9ipiW4Vg==",
       "type": "package",
-      "path": "syncfusion.licensing/17.1.0.43",
+      "path": "syncfusion.licensing/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16582,14 +16582,14 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.17.1.0.43.nupkg.sha512",
+        "syncfusion.licensing.17.1.0.51.nupkg.sha512",
         "syncfusion.licensing.nuspec"
       ]
     },
-    "Syncfusion.OfficeChart.Net.Core/17.1.0.43": {
-      "sha512": "AtaF92EegBSQcv67Wi9dsuaNEIxmYUy1FcgVJa+oJwkmySFghv4XpETlbrHlcHb1LM394ok+xn3ae8mgVSej6Q==",
+    "Syncfusion.OfficeChart.Net.Core/17.1.0.51": {
+      "sha512": "fZjNFkjxdDnVtmsvW5uGU+Gv0SyadbskcNjXL5249xe6MSqjgProkA8WpHnyP7KJT5GS9Z9KBzdhwSG9N5Ocfw==",
       "type": "package",
-      "path": "syncfusion.officechart.net.core/17.1.0.43",
+      "path": "syncfusion.officechart.net.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16607,14 +16607,14 @@
         "lib/netstandard1.4/Syncfusion.OfficeChart.Portable.xml",
         "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.dll",
         "lib/netstandard2.0/Syncfusion.OfficeChart.Portable.xml",
-        "syncfusion.officechart.net.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.officechart.net.core.17.1.0.51.nupkg.sha512",
         "syncfusion.officechart.net.core.nuspec"
       ]
     },
-    "Syncfusion.Pdf.Net.Core/17.1.0.43": {
-      "sha512": "ToOS7xBCV+hW9wqS5yJ0EjiXH57R5xW01kBunsEUwbpasMOt/kvNKmICUlx/T5ZeLggJpGNZDqrtzvTqWxrkhg==",
+    "Syncfusion.Pdf.Net.Core/17.1.0.51": {
+      "sha512": "Ikc3yqeDIxtwPMbdE+zZPHSjmIJDluxBvSsZT5XDKc8B/yw3cAj8HoTPkYd6a2PYqqkHTbPWhq+nSITwf1b/ew==",
       "type": "package",
-      "path": "syncfusion.pdf.net.core/17.1.0.43",
+      "path": "syncfusion.pdf.net.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16632,14 +16632,14 @@
         "lib/netstandard1.4/Syncfusion.Pdf.Portable.xml",
         "lib/netstandard2.0/Syncfusion.Pdf.Portable.dll",
         "lib/netstandard2.0/Syncfusion.Pdf.Portable.xml",
-        "syncfusion.pdf.net.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.pdf.net.core.17.1.0.51.nupkg.sha512",
         "syncfusion.pdf.net.core.nuspec"
       ]
     },
-    "Syncfusion.XlsIO.Net.Core/17.1.0.43": {
-      "sha512": "0MWUFcj1vgprU/ZtsFqrwqoDe11TjPzDQIx9NLuMPytAlSuvS5Ivzi8inudPVXUmTr4hCeD4oVb8DFu3uimZ4w==",
+    "Syncfusion.XlsIO.Net.Core/17.1.0.51": {
+      "sha512": "C/qy73+zQQrEbsMNUxEu6NGWNN5CjmQ0cp7xml0VbSeIElgCUEo/v3YJcCT0w7trosXoFnpsHHQY1jZypFAEIw==",
       "type": "package",
-      "path": "syncfusion.xlsio.net.core/17.1.0.43",
+      "path": "syncfusion.xlsio.net.core/17.1.0.51",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -16657,7 +16657,7 @@
         "lib/netstandard1.4/Syncfusion.XlsIO.Portable.xml",
         "lib/netstandard2.0/Syncfusion.XlsIO.Portable.dll",
         "lib/netstandard2.0/Syncfusion.XlsIO.Portable.xml",
-        "syncfusion.xlsio.net.core.17.1.0.43.nupkg.sha512",
+        "syncfusion.xlsio.net.core.17.1.0.51.nupkg.sha512",
         "syncfusion.xlsio.net.core.nuspec"
       ]
     },
@@ -18271,10 +18271,10 @@
         "system.io.filesystem.primitives.nuspec"
       ]
     },
-    "System.IO.Pipelines/4.5.2": {
-      "sha512": "NOC/SO4gSX6t0tB25xxDPqPEzkksuzW7NVFBTQGAkjXXUPQl7ZtyE83T7tUCP2huFBbPombfCKvq1Ox1aG8D9w==",
+    "System.IO.Pipelines/4.5.3": {
+      "sha512": "k6Ac5MuJ/GbFo7l/bB0Bxg0JxHReDi19eW1wuDGIy/iSIAJob0cNHChvILde/v4fdX1ZNmL2Nr7axKG21wbNLw==",
       "type": "package",
-      "path": "system.io.pipelines/4.5.2",
+      "path": "system.io.pipelines/4.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -18286,8 +18286,7 @@
         "lib/netstandard1.3/System.IO.Pipelines.xml",
         "lib/netstandard2.0/System.IO.Pipelines.dll",
         "lib/netstandard2.0/System.IO.Pipelines.xml",
-        "ref/netstandard1.3/System.IO.Pipelines.dll",
-        "system.io.pipelines.4.5.2.nupkg.sha512",
+        "system.io.pipelines.4.5.3.nupkg.sha512",
         "system.io.pipelines.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -21699,25 +21698,25 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "EPPlus >= 4.5.3.1",
-      "Microsoft.AspNetCore.App >= 2.2.4",
+      "Microsoft.AspNetCore.App >= 2.2.5",
       "Microsoft.AspNetCore.Authorization >= 2.2.0",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 2.2.0",
       "Microsoft.AspNetCore.Mvc >= 2.2.0",
-      "Microsoft.AspNetCore.Mvc.Core >= 2.2.2",
+      "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.AspNetCore.Owin >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Relational >= 2.2.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Tools >= 2.2.4",
-      "Microsoft.NETCore.App >= 2.2.4",
+      "Microsoft.NETCore.App >= 2.2.5",
       "NETStandard.Library >= 2.0.3",
-      "Syncfusion.EJ >= 17.1.0.43",
-      "Syncfusion.EJ.AspNet.Core >= 17.1.0.43",
-      "Syncfusion.EJ.Export >= 17.1.0.43",
-      "Syncfusion.JavaScript >= 17.1.0.43",
-      "Syncfusion.XlsIO.Net.Core >= 17.1.0.43",
+      "Syncfusion.EJ >= 17.1.0.51",
+      "Syncfusion.EJ.AspNet.Core >= 17.1.0.51",
+      "Syncfusion.EJ.Export >= 17.1.0.51",
+      "Syncfusion.JavaScript >= 17.1.0.51",
+      "Syncfusion.XlsIO.Net.Core >= 17.1.0.51",
       "System.ComponentModel >= 4.3.0",
       "System.Threading.Tasks >= 4.3.0",
       "bootstrap >= 4.3.1"
@@ -21725,31 +21724,33 @@
   },
   "packageFolders": {
     "C:\\Users\\levin_m\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\Isas\\src\\Isas\\Isas.csproj",
+      "projectUniqueName": "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj",
       "projectName": "Isas",
-      "projectPath": "C:\\Dev\\Isas\\src\\Isas\\Isas.csproj",
+      "projectPath": "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj",
       "packagesPath": "C:\\Users\\levin_m\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\Isas\\src\\Isas\\obj\\",
+      "outputPath": "C:\\Users\\levin_m\\source\\repos\\isas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
         "C:\\Users\\levin_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
@@ -21772,7 +21773,7 @@
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.2.4, )",
+            "version": "[2.2.5, )",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.Authorization": {
@@ -21793,7 +21794,7 @@
           },
           "Microsoft.AspNetCore.Mvc.Core": {
             "target": "Package",
-            "version": "[2.2.2, )"
+            "version": "[2.2.5, )"
           },
           "Microsoft.AspNetCore.Owin": {
             "target": "Package",
@@ -21824,7 +21825,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.2.4, )",
+            "version": "[2.2.5, )",
             "autoReferenced": true
           },
           "NETStandard.Library": {
@@ -21833,23 +21834,23 @@
           },
           "Syncfusion.EJ": {
             "target": "Package",
-            "version": "[17.1.0.43, )"
+            "version": "[17.1.0.51, )"
           },
           "Syncfusion.EJ.AspNet.Core": {
             "target": "Package",
-            "version": "[17.1.0.43, )"
+            "version": "[17.1.0.51, )"
           },
           "Syncfusion.EJ.Export": {
             "target": "Package",
-            "version": "[17.1.0.43, )"
+            "version": "[17.1.0.51, )"
           },
           "Syncfusion.JavaScript": {
             "target": "Package",
-            "version": "[17.1.0.43, )"
+            "version": "[17.1.0.51, )"
           },
           "Syncfusion.XlsIO.Net.Core": {
             "target": "Package",
-            "version": "[17.1.0.43, )"
+            "version": "[17.1.0.51, )"
           },
           "System.ComponentModel": {
             "target": "Package",

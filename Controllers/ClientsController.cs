@@ -151,7 +151,7 @@ namespace Isas.Controllers
             return View(viewModel);
         }
 
-        public IActionResult RefreshData(int payeeclassId)
+        public IActionResult RefreshData()
         {
             var clients = (from c in _context.Clients.AsNoTracking()
                             .Include(u => u.Country)
@@ -247,8 +247,7 @@ namespace Isas.Controllers
 
         private GridProperties ConvertGridObject(string gridProperty)
         {
-            GridProperties gridProp = new GridProperties();
-            gridProp = (GridProperties)JsonConvert.DeserializeObject(gridProperty, typeof(GridProperties));
+            GridProperties gridProp = (GridProperties)JsonConvert.DeserializeObject(gridProperty, typeof(GridProperties));
             return gridProp;
         }
 

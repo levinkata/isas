@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\levin\\source\\repos\\Isas\\src\\Isas\\Isas.csproj": {}
+    "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\levin\\source\\repos\\Isas\\src\\Isas\\Isas.csproj": {
+    "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\levin\\source\\repos\\Isas\\src\\Isas\\Isas.csproj",
+        "projectUniqueName": "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj",
         "projectName": "Isas",
-        "projectPath": "C:\\Users\\levin\\source\\repos\\Isas\\src\\Isas\\Isas.csproj",
-        "packagesPath": "C:\\Users\\levin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\levin\\source\\repos\\Isas\\src\\Isas\\obj\\",
+        "projectPath": "C:\\Users\\levin_m\\source\\repos\\isas\\Isas.csproj",
+        "packagesPath": "C:\\Users\\levin_m\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\levin_m\\source\\repos\\isas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\levin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\levin_m\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -27,7 +27,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://nuget.syncfusion.com/nuget_aspnetcore/nuget/getsyncfusionpackages/aspnetcore/": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,7 +50,7 @@
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.4, )",
+              "version": "[2.2.5, )",
               "autoReferenced": true
             },
             "Microsoft.AspNetCore.Authorization": {
@@ -103,7 +102,7 @@
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.4, )",
+              "version": "[2.2.5, )",
               "autoReferenced": true
             },
             "NETStandard.Library": {
@@ -112,23 +111,23 @@
             },
             "Syncfusion.EJ": {
               "target": "Package",
-              "version": "[17.1.0.43, )"
+              "version": "[17.1.0.51, )"
             },
             "Syncfusion.EJ.AspNet.Core": {
               "target": "Package",
-              "version": "[17.1.0.43, )"
+              "version": "[17.1.0.51, )"
             },
             "Syncfusion.EJ.Export": {
               "target": "Package",
-              "version": "[17.1.0.43, )"
+              "version": "[17.1.0.51, )"
             },
             "Syncfusion.JavaScript": {
               "target": "Package",
-              "version": "[17.1.0.43, )"
+              "version": "[17.1.0.51, )"
             },
             "Syncfusion.XlsIO.Net.Core": {
               "target": "Package",
-              "version": "[17.1.0.43, )"
+              "version": "[17.1.0.51, )"
             },
             "System.ComponentModel": {
               "target": "Package",

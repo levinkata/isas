@@ -9,7 +9,7 @@
     <UserSecretsId>aspnet-Isas-47d34dcb-3f64-47c3-a96c-cd1b454df081</UserSecretsId>
     <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <!--<PackageTargetFallback>$(PackageTargetFallback);dotnet5.6;portable-net45+win8</PackageTargetFallback>-->
-    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.4</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,7 +32,6 @@
     <Compile Remove="Migrations\20190506133224_InitialCreate.cs" />
     <Compile Remove="Migrations\20190508074215_Init.cs" />
     <Compile Remove="Migrations\20190508082520_Init.cs" />
-    <Compile Remove="Migrations\ApplicationDb\20190501132417_InitialCreate.cs" />
     <None Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
@@ -51,7 +50,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
@@ -62,11 +61,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
-    <PackageReference Include="Syncfusion.EJ" Version="17.1.0.43" />
-    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="17.1.0.43" />
-    <PackageReference Include="Syncfusion.EJ.Export" Version="17.1.0.43" />
-    <PackageReference Include="Syncfusion.JavaScript" Version="17.1.0.43" />
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="17.1.0.43" />
+    <PackageReference Include="Syncfusion.EJ" Version="17.1.0.51" />
+    <PackageReference Include="Syncfusion.EJ.AspNet.Core" Version="17.1.0.51" />
+    <PackageReference Include="Syncfusion.EJ.Export" Version="17.1.0.51" />
+    <PackageReference Include="Syncfusion.JavaScript" Version="17.1.0.51" />
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="17.1.0.51" />
     <PackageReference Include="System.ComponentModel" Version="4.3.0" />
     <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
   </ItemGroup>
